@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export default function App() {
-  const containerRefDiv =
-    React.useRef() as React.MutableRefObject<HTMLDivElement>;
+  const containerRefDiv = useRef() as React.MutableRefObject<HTMLDivElement>;
 
   const [width, setWidth] = useState(0);
   const [currentScrollLeft, setCurrentScrollLeft] = useState(0);
