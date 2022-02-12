@@ -1,34 +1,47 @@
-import React, { useState } from "react";
-import logo from "./logo.svg";
-import "./App.css";
-import List from "./components/List";
-import AddToList from "./components/AddToList";
+import React, { useState, useEffect } from "react";
 
-export interface IState {
-  people: {
-    name: string;
-    url: string;
-    age: number;
-    note?: string;
-  }[];
-}
-function App() {
-  const [people, setPeople] = useState<IState["people"]>([
-    {
-      name: "LeBron James",
-      url: "https://upload.wikimedia.org/wikipedia/commons/c/cf/LeBron_James_crop.jpg",
-      age: 36,
-      note: "Allergic to staying on  the same team",
-    },
-  ]);
+export default function App() {
+  const containerRefDiv =
+    React.useRef() as React.MutableRefObject<HTMLDivElement>;
+
+  const [width, setWidth] = useState(0);
+  const [currentScrollLeft, setCurrentScrollLeft] = useState(0);
+
+  const updateDivWidth = () => {
+    const newScrollLeft = containerRefDiv.current.scrollLeft;
+    if (currentScrollLeft < newScrollLeft) {
+      setCurrentScrollLeft(newScrollLeft);
+      if (width === 0) {
+        setWidth(containerRefDiv.current.clientWidth + 10);
+      } else {
+        setWidth((previous) => previous + 10);
+      }
+    }
+  };
+
+  useEffect(() => {
+    console.log("new width set: ", width);
+  }, [width]);
+
+  const getInnerDivStyle = () => {
+    if (containerRefDiv.current && width !== 0) {
+      return `${width}px`;
+    } else {
+      return "101%";
+    }
+  };
 
   return (
-    <div className="App">
-      <h1>People Invited to my party</h1>
-      <List people={people} />
-      <AddToList people={people} setPeople={setPeople} />
+    <div>
+      <div
+        className="App"
+        style={{ overflowX: "scroll", width: "100%" }}
+        ref={containerRefDiv}
+        onScroll={updateDivWidth}
+      >
+        <div style={{ width: getInnerDivStyle() }}>{width}</div>
+      </div>
+      <div>{width}</div>
     </div>
   );
 }
-
-export default App;
