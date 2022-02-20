@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import Slider from "./components/Slider";
 
 export default function App() {
@@ -9,11 +9,16 @@ export default function App() {
   return (
     <div>
       <button onClick={() => setCount(0)}>Reset</button>
-      <Slider count={count} handleSlide={handleSlide} />
-      <Slider count={count} handleSlide={handleSlide} />
-      <Slider count={count} handleSlide={handleSlide} />
-      <Slider count={count} handleSlide={handleSlide} />
-      <Slider count={count} handleSlide={handleSlide} />
+      <Slider count={count} handleSlide={handleSlide} timeZone="CET" />
+      <Slider count={count} handleSlide={handleSlide} timeZone="Asia/Amman" />
+      <Slider count={count} handleSlide={handleSlide} timeZone="UTC" />
+      <Slider count={count} handleSlide={handleSlide} timeZone="UTC" />
+      <Slider count={count} handleSlide={handleSlide} timeZone="UTC" />
+      <Slider
+        count={count}
+        handleSlide={handleSlide}
+        timeZone="Africa/Khartoum"
+      />
     </div>
   );
 }
