@@ -1,4 +1,7 @@
 .hour {
-  flex: 1;
-  border: 2px solid yellow;
+  overflow: hidden;
+  border: 0.2px solid rgb(0, 0, 0);
+}
+.current {
+  background-color: red;
 }

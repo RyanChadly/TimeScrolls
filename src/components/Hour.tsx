@@ -1,11 +1,16 @@
 import "./Hour.css";
 interface Props {
   hour: number;
+  minutes: number;
+  current: boolean;
 }
 
-const Hour: React.FC<Props> = ({ hour }) => {
+const Hour: React.FC<Props> = ({ hour, minutes, current }) => {
   return (
-    <span className="hour" style={{ border: "solid" }}>
+    <span
+      className={`hour ${current ? "current" : ""}`}
+      style={{ flex: minutes }}
+    >
       {hour}
     </span>
   );
