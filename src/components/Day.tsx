@@ -1,16 +1,18 @@
 import Hour from "./Hour";
 import range from "lodash/range";
-import chunk from "lodash/range";
 import "./Day.css";
+import { useRef, useState } from "react";
 interface Props {
-  maxWidth: number;
-  time: Date;
+  handleSlide: (a: number) => void;
   hour: number;
   minutes: number;
 }
-const Day: React.FC<Props> = ({ maxWidth, time, hour, minutes }) => {
+const Day: React.FC<Props> = ({ handleSlide, hour, minutes }) => {
+  const containerRefDiv = useRef() as React.MutableRefObject<HTMLDivElement>;
+  const [mouseDown, setMouseDown] = useState(false);
+  const [x, setX] = useState(0);
   const i = hour < 12 ? 12 + hour : hour - 12;
-  const hours = [...range(24).splice(i), ...range(24).splice(0, i)];
+  const hours = [...range(24).splice(i), ...range(24).splice(0, i + 1)];
 
   const minutesProportion = (index: number) => {
     if (index === 0) {
@@ -21,9 +23,33 @@ const Day: React.FC<Props> = ({ maxWidth, time, hour, minutes }) => {
     }
     return 60;
   };
-
+  const handleMouseDown = (e: any) => {
+    setMouseDown(true);
+    setX(e.clientX);
+  };
+  const handleMouseMove = (e: any) => {
+    if (mouseDown) {
+      const maxWidth = containerRefDiv.current.clientWidth;
+      const deltaX = e.clientX - x;
+      setX(e.clientX);
+      const maxTime = 24 * 60;
+      const deltaMinutes = (deltaX * maxTime) / maxWidth;
+      handleSlide(-deltaMinutes);
+    }
+  };
+  const handleMouseUp = () => {
+    setMouseDown(false);
+  };
   return (
-    <div className="day">
+    <div
+      className="day"
+      onMouseDown={handleMouseDown}
+      onMouseMove={handleMouseMove}
+      onMouseUp={handleMouseUp}
+      onMouseLeave={handleMouseUp}
+      ref={containerRefDiv}
+      style={{ cursor: mouseDown ? "grabbing" : "grab", userSelect: "none" }}
+    >
       {hours.map((h, index) => {
         return (
           <Hour
