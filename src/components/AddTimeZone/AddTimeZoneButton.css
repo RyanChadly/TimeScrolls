@@ -1,0 +1,22 @@
+.btn-wrapper {
+  display: flex;
+}
+#paddingLeft {
+  flex-basis: 15%;
+}
+.btn-popup {
+  display: flex;
+  margin: auto;
+  width: 200px;
+}
+.addIcon {
+  height: 30px;
+  width: 30px;
+  display: grid;
+  place-items: center;
+}
+
+#addPhrase {
+  height: 30px;
+  padding-top: 6px;
+}
