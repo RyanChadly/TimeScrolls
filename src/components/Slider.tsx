@@ -15,10 +15,7 @@ const Slider: React.FC<IProps> = ({
   time,
   name,
 }) => {
-  const add_minutes = function (
-    dt: { getTime: () => number },
-    minutes: number
-  ) {
+  const add_minutes = function (dt: Date, minutes: number) {
     return new Date(dt.getTime() + minutes * 60000);
   };
 
@@ -26,6 +23,10 @@ const Slider: React.FC<IProps> = ({
     return add_minutes(time, count).toLocaleTimeString("en-GB", {
       timeZone: timeZone,
       timeZoneName: "short",
+      weekday: "short",
+      day: "2-digit",
+      month: "2-digit",
+      year: "2-digit",
     });
   };
 
@@ -45,8 +46,8 @@ const Slider: React.FC<IProps> = ({
 
       <Day
         handleSlide={handleSlide}
-        hour={parseInt(timeString().split(":")[0])}
-        minutes={parseInt(timeString().split(":")[1])}
+        time={add_minutes(time, count)}
+        timeZone={timeZone}
       />
     </div>
   );

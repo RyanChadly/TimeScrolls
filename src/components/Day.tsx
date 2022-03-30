@@ -4,17 +4,33 @@ import "./Day.css";
 import { useRef, useState } from "react";
 interface Props {
   handleSlide: (a: number) => void;
-  hour: number;
-  minutes: number;
+  time: Date;
+  timeZone: string;
 }
-const Day: React.FC<Props> = ({ handleSlide, hour, minutes }) => {
+const Day: React.FC<Props> = ({ handleSlide, time, timeZone }) => {
   const containerRefDiv = useRef() as React.MutableRefObject<HTMLDivElement>;
   const [mouseDown, setMouseDown] = useState(false);
   const [x, setX] = useState(0);
-  const i = hour < 12 ? 12 + hour : hour - 12;
-  const hours = [...range(24).splice(i), ...range(24).splice(0, i + 1)];
+  const rangeBefore = range(-12, 0, 1).map((h) => addHours(h));
+  const rangeAfter = range(0, 13, 1).map((h) => addHours(h));
+  const hours = [...rangeBefore, ...rangeAfter];
+  const hour = parseInt(timeString(time).split(":")[0]);
+  const minutes = parseInt(timeString(time).split(":")[1]);
 
-  const minutesProportion = (index: number) => {
+  function addHours(h: number): number {
+    const newDate = new Date(time.getTime() + h * 60 * 60000);
+    const newStringDate = timeString(newDate);
+    return parseInt(newStringDate.split(":")[0]);
+  }
+
+  function timeString(timeValue: Date): string {
+    return timeValue.toLocaleTimeString("en-GB", {
+      timeZone: timeZone,
+      timeZoneName: "short",
+    });
+  }
+
+  function minutesProportion(index: number) {
     if (index === 0) {
       return 60 - minutes;
     }
@@ -22,7 +38,7 @@ const Day: React.FC<Props> = ({ handleSlide, hour, minutes }) => {
       return minutes;
     }
     return 60;
-  };
+  }
   const handleMouseDown = (e: any) => {
     setMouseDown(true);
     setX(e.clientX);
