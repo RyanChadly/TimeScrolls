@@ -10,6 +10,7 @@ const Hour: React.FC<Props> = ({ hour, minutes, current }) => {
     <span
       className={`hour ${current ? "current" : ""}`}
       style={{ flex: minutes }}
+      id={`h${hour}`}
     >
       {hour}
     </span>
