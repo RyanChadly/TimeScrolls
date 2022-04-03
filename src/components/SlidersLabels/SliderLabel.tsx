@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { MdDeleteOutline, MdDragIndicator } from "react-icons/md";
 import { HandleDelete, Location } from "../../App";
 import "./SliderLabel.css";
@@ -15,10 +16,29 @@ const SliderLabel: React.FC<SliderLabelProp> = ({
   index,
   handleDelete,
 }) => {
+  const [isHovered, setIsHovered] = useState(false);
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
+  const handleMouseDown = () => {};
+  const handleMouseMove = () => {};
+  const handleMouseUp = () => {};
   return (
-    <div className="lbl-label">
+    <div
+      className="lbl-label"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
       <div className="lbl-actions-grabber" draggable="true">
-        <MdDragIndicator />
+        <MdDragIndicator
+          color={isHovered ? "black" : "white"}
+          onMouseDown={handleMouseDown}
+          onMouseMove={handleMouseMove}
+          onMouseUp={handleMouseUp}
+        />
       </div>
 
       <div className="lbl-info">
@@ -40,7 +60,10 @@ const SliderLabel: React.FC<SliderLabelProp> = ({
         </div>
       </div>
       <div className="lbl-actions-delete">
-        <MdDeleteOutline onClick={() => handleDelete(index)} />
+        <MdDeleteOutline
+          onClick={() => handleDelete(index)}
+          color={isHovered ? "black" : "white"}
+        />
       </div>
     </div>
   );
