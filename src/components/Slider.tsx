@@ -1,5 +1,6 @@
 import Day from "./Day";
 import "./Slider.css";
+import { MdDragIndicator } from "react-icons/md";
 interface IProps {
   count: number;
   handleSlide: any;
@@ -39,7 +40,8 @@ const Slider: React.FC<IProps> = ({
         flexWrap: "nowrap",
       }}
     >
-      <div style={{ flexBasis: "15%" }}>
+      <div draggable="true" style={{ flexBasis: "15%" }}>
+        <MdDragIndicator />
         <div>{name}</div>
         <div>{timeString()}</div>
       </div>
