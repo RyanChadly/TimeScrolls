@@ -1,0 +1,13 @@
+.sliders {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+}
+.labels {
+  flex-basis: 15%;
+}
+.days {
+  /* display: flex; */
+  flex-wrap: nowrap;
+  flex-basis: 85%;
+}
