@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react";
-import Slider from "./components/Slider";
-import SlidersHeader from "./components/SlidersHeader";
 import "./App.css";
 import AddTimeZoneButton from "./components/AddTimeZone/AddTimeZoneButton";
 import Sliders from "./components/Sliders";
@@ -40,7 +38,7 @@ export default function App() {
     setLocations([...locations, data]);
   };
   return (
-    <div style={{ color: "rgb(70, 70, 70)" }}>
+    <div className="app">
       {count !== 0 && (
         <button className="reset-btn" onClick={() => setCount(0)}>
           Reset

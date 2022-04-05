@@ -1,9 +1,16 @@
 .day {
-  display: flex;
-  text-align: center;
-  height: 100px;
-  flex-basis: 85%;
-  height: 100px;
   margin-top: 5px;
   margin-bottom: 5px;
+  height: 100px;
+}
+.hours {
+  display: flex;
+  text-align: center;
+  height: 100%;
+}
+.time-indicator {
+  position: relative;
+  z-index: 1;
+  height: 5px;
+  text-align: center;
 }
