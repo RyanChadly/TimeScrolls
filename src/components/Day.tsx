@@ -6,10 +6,11 @@ import { AiFillCaretDown } from "react-icons/ai";
 interface Props {
   time: Date;
   timeZone: string;
+  reach: number;
 }
-const Day: React.FC<Props> = ({ time, timeZone }) => {
-  const rangeBefore = range(-12, 0, 1).map((h) => addHours(h));
-  const rangeAfter = range(0, 13, 1).map((h) => addHours(h));
+const Day: React.FC<Props> = ({ time, timeZone, reach }) => {
+  const rangeBefore = range(-reach, 0, 1).map((h) => addHours(h));
+  const rangeAfter = range(0, reach + 1, 1).map((h) => addHours(h));
   const hours = [...rangeBefore, ...rangeAfter];
   const hour = parseInt(timeString(time).split(":")[0]);
   const minutes = parseInt(timeString(time).split(":")[1]);

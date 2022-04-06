@@ -53,8 +53,6 @@ export default function App() {
         </button>
       )}
       <AddTimeZoneButton addTimeZone={addTimeZone} />
-
-      {/* <SlidersHeader /> */}
       <Sliders
         locations={locations}
         time={time}
@@ -63,7 +61,6 @@ export default function App() {
         handleSlide={handleSlide}
         handleChangeOrder={handleChangeOrder}
       />
-      {/* <SlidersHeader /> */}
     </div>
   );
 }

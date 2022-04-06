@@ -29,6 +29,7 @@ const Sliders: React.FC<IProps> = ({
   const add_minutes = function (dt: Date, minutes: number) {
     return new Date(dt.getTime() + minutes * 60000);
   };
+  const reach = 12;
 
   useEffect(() => {
     setSlidedTime(add_minutes(time, count));
@@ -43,7 +44,7 @@ const Sliders: React.FC<IProps> = ({
       const maxWidth = daysRefDiv.current.clientWidth;
       const deltaX = e.clientX - x;
       setX(e.clientX);
-      const maxTime = 24 * 60;
+      const maxTime = reach * 2 * 60;
       const deltaMinutes = (deltaX * maxTime) / maxWidth;
       handleSlide(-deltaMinutes);
     }
@@ -79,7 +80,9 @@ const Sliders: React.FC<IProps> = ({
         style={{ cursor: mouseDown ? "grabbing" : "grab", userSelect: "none" }}
       >
         {locations.map((location) => {
-          return <Day time={slidedTime} timeZone={location.value} />;
+          return (
+            <Day time={slidedTime} timeZone={location.value} reach={reach} />
+          );
         })}
       </div>
     </div>
