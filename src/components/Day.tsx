@@ -1,18 +1,16 @@
 import Hour from "./Hour";
 import range from "lodash/range";
 import "./Day.css";
-import { useRef, useState } from "react";
+import { AiFillCaretDown } from "react-icons/ai";
+
 interface Props {
-  handleSlide: (a: number) => void;
   time: Date;
   timeZone: string;
+  reach: number;
 }
-const Day: React.FC<Props> = ({ handleSlide, time, timeZone }) => {
-  const containerRefDiv = useRef() as React.MutableRefObject<HTMLDivElement>;
-  const [mouseDown, setMouseDown] = useState(false);
-  const [x, setX] = useState(0);
-  const rangeBefore = range(-12, 0, 1).map((h) => addHours(h));
-  const rangeAfter = range(0, 13, 1).map((h) => addHours(h));
+const Day: React.FC<Props> = ({ time, timeZone, reach }) => {
+  const rangeBefore = range(-reach, 0, 1).map((h) => addHours(h));
+  const rangeAfter = range(0, reach + 1, 1).map((h) => addHours(h));
   const hours = [...rangeBefore, ...rangeAfter];
   const hour = parseInt(timeString(time).split(":")[0]);
   const minutes = parseInt(timeString(time).split(":")[1]);
@@ -39,42 +37,23 @@ const Day: React.FC<Props> = ({ handleSlide, time, timeZone }) => {
     }
     return 60;
   }
-  const handleMouseDown = (e: any) => {
-    setMouseDown(true);
-    setX(e.clientX);
-  };
-  const handleMouseMove = (e: any) => {
-    if (mouseDown) {
-      const maxWidth = containerRefDiv.current.clientWidth;
-      const deltaX = e.clientX - x;
-      setX(e.clientX);
-      const maxTime = 24 * 60;
-      const deltaMinutes = (deltaX * maxTime) / maxWidth;
-      handleSlide(-deltaMinutes);
-    }
-  };
-  const handleMouseUp = () => {
-    setMouseDown(false);
-  };
+
   return (
-    <div
-      className="day"
-      onMouseDown={handleMouseDown}
-      onMouseMove={handleMouseMove}
-      onMouseUp={handleMouseUp}
-      onMouseLeave={handleMouseUp}
-      ref={containerRefDiv}
-      style={{ cursor: mouseDown ? "grabbing" : "grab", userSelect: "none" }}
-    >
-      {hours.map((h, index) => {
-        return (
-          <Hour
-            hour={h}
-            minutes={minutesProportion(index)}
-            current={h === hour}
-          />
-        );
-      })}
+    <div className="day">
+      <div className="time-indicator">
+        <AiFillCaretDown />
+      </div>
+      <div className="hours">
+        {hours.map((h, index) => {
+          return (
+            <Hour
+              hour={h}
+              minutes={minutesProportion(index)}
+              current={h === hour}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 };

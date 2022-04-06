@@ -1,0 +1,33 @@
+.lbl-label {
+  background-color: rgb(231, 231, 231);
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  flex-basis: 15%;
+  margin: 10px 10px 0px 0px;
+  height: 100px;
+}
+
+.lbl-actions-grabber {
+  align-self: center;
+}
+.lbl-info {
+  text-align: center;
+  align-self: center;
+}
+.lbl-info-title {
+  width: 150px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-weight: bold;
+}
+.lbl-info-time {
+  font-size: larger;
+}
+.lbl-info-date {
+  font-size: small;
+}
+.lbl-actions-delete {
+  align-self: center;
+}

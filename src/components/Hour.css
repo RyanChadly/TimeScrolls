@@ -1,64 +1,18 @@
 .hour {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   overflow: hidden;
   border: 0.1px solid rgb(197, 197, 197);
   border-radius: 5px;
-  padding-top: 40px;
 }
-.current {
+
+.n {
+  background-color: rgb(126, 126, 126);
+  color: white;
+}
+
+/* .current {
   font-weight: bold;
-  /* background-color: rgb(245, 245, 245); */
-}
-/* #h0 {
-  background-color: rgb(0, 0, 0);
-  color: white;
-}
-#h1 {
-  background-color: rgb(10, 10, 10);
-  color: white;
-}
-#h2 {
-  background-color: rgb(20, 20, 20);
-  color: white;
-}
-#h3 {
-  background-color: rgb(30, 30, 30);
-  color: white;
-}
-#h4 {
-  background-color: rgb(40, 40, 40);
-  color: white;
-}
-#h5 {
-  background-color: rgb(50, 50, 50);
-  color: white;
-}
-#h6 {
-  background-color: rgb(60, 60, 60);
-  color: white;
-}
-#h20 {
-  background-color: rgb(50, 50, 50);
-  color: white;
-}
-#h21 {
-  background-color: rgb(40, 40, 40);
-  color: white;
-}
-#h22 {
-  background-color: rgb(30, 30, 30);
-  color: white;
-}
-#h7 {
-  background: radial-gradient(
-    circle at 50% 100%,
-    rgba(247, 250, 183, 1) 0%,
-    rgb(174, 239, 255) 10%
-  );
-}
-#h19 {
-  background: radial-gradient(
-    circle at 50% 100%,
-    rgba(247, 250, 183, 1) 0%,
-    rgb(174, 239, 255) 10%
-  );
+  background-color: rgb(192, 191, 255);
 } */
