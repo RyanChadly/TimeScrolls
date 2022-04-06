@@ -9,6 +9,7 @@ export interface Location {
 }
 export type HandleDelete = (i: number) => void;
 export type HandleSlide = (a: number) => void;
+export type HandleChangeOrder = (dest: number, orig: number) => void;
 
 export default function App() {
   const [count, setCount] = useState(0);
@@ -22,11 +23,18 @@ export default function App() {
       name: "NY",
     },
   ]);
+  const handleChangeOrder = (destination: number, origin: number) => {
+    const itemToMove = locations[origin];
+    let newArray = locations;
+    newArray.splice(origin, 1);
+    newArray.splice(destination, 0, itemToMove);
+    setLocations(newArray);
+  };
   const handleSlide = (value: number) => {
     setCount((previous) => previous + value);
   };
   const handleDelete = (index: number) => {
-    setLocations(locations.filter((location, i) => i !== index));
+    setLocations(locations.filter((_location, i) => i !== index));
   };
   useEffect(() => {
     setTimeout(() => {
@@ -53,6 +61,7 @@ export default function App() {
         count={count}
         handleDelete={handleDelete}
         handleSlide={handleSlide}
+        handleChangeOrder={handleChangeOrder}
       />
       {/* <SlidersHeader /> */}
     </div>

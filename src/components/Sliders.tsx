@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { HandleDelete, HandleSlide, Location } from "../App";
+import { HandleChangeOrder, HandleDelete, HandleSlide, Location } from "../App";
 import Day from "./Day";
 import SliderLabel from "./SlidersLabels/SliderLabel";
 import "./Sliders.css";
@@ -10,6 +10,7 @@ interface IProps {
   count: number;
   handleDelete: HandleDelete;
   handleSlide: HandleSlide;
+  handleChangeOrder: HandleChangeOrder;
 }
 
 const Sliders: React.FC<IProps> = ({
@@ -18,9 +19,11 @@ const Sliders: React.FC<IProps> = ({
   count,
   handleDelete,
   handleSlide,
+  handleChangeOrder,
 }) => {
   const [slidedTime, setSlidedTime] = useState<Date>(new Date());
-  const containerRefDiv = useRef() as React.MutableRefObject<HTMLDivElement>;
+  const daysRefDiv = useRef() as React.MutableRefObject<HTMLDivElement>;
+  const labelsRefDiv = useRef() as React.MutableRefObject<HTMLDivElement>;
   const [mouseDown, setMouseDown] = useState(false);
   const [x, setX] = useState(0);
   const add_minutes = function (dt: Date, minutes: number) {
@@ -30,13 +33,14 @@ const Sliders: React.FC<IProps> = ({
   useEffect(() => {
     setSlidedTime(add_minutes(time, count));
   }, [count, time]);
+
   const handleMouseDown = (e: any) => {
     setMouseDown(true);
     setX(e.clientX);
   };
   const handleMouseMove = (e: any) => {
     if (mouseDown) {
-      const maxWidth = containerRefDiv.current.clientWidth;
+      const maxWidth = daysRefDiv.current.clientWidth;
       const deltaX = e.clientX - x;
       setX(e.clientX);
       const maxTime = 24 * 60;
@@ -49,15 +53,19 @@ const Sliders: React.FC<IProps> = ({
   };
   return (
     <div className="sliders">
-      <div className="labels">
+      <div className="labels" ref={labelsRefDiv}>
         {locations.map((location, index) => {
           return (
-            <SliderLabel
-              location={location}
-              slidedTime={slidedTime}
-              index={index}
-              handleDelete={handleDelete}
-            />
+            <>
+              <div className="dropLocation"></div>
+              <SliderLabel
+                location={location}
+                slidedTime={slidedTime}
+                index={index}
+                handleDelete={handleDelete}
+                handleChangeOrder={handleChangeOrder}
+              />
+            </>
           );
         })}
       </div>
@@ -67,7 +75,7 @@ const Sliders: React.FC<IProps> = ({
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
         onMouseLeave={handleMouseUp}
-        ref={containerRefDiv}
+        ref={daysRefDiv}
         style={{ cursor: mouseDown ? "grabbing" : "grab", userSelect: "none" }}
       >
         {locations.map((location) => {

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { MdDeleteOutline, MdDragIndicator } from "react-icons/md";
-import { HandleDelete, Location } from "../../App";
+import { HandleChangeOrder, HandleDelete, Location } from "../../App";
 import "./SliderLabel.css";
 
 interface SliderLabelProp {
@@ -8,6 +8,7 @@ interface SliderLabelProp {
   slidedTime: Date;
   index: number;
   handleDelete: HandleDelete;
+  handleChangeOrder: HandleChangeOrder;
 }
 
 const SliderLabel: React.FC<SliderLabelProp> = ({
@@ -15,29 +16,71 @@ const SliderLabel: React.FC<SliderLabelProp> = ({
   slidedTime,
   index,
   handleDelete,
+  handleChangeOrder,
 }) => {
+  const [isGrabbed, setIsGrabbed] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
+  const [dragEntered, setDragEntered] = useState(false);
+  const [isGrabbable, setIsGrabbable] = useState(false);
+  const handleDragEnd = () => {
+    setIsGrabbed(false);
+  };
+  const handleDragStart = (e: React.DragEvent<HTMLDivElement>) => {
+    e.dataTransfer.setData("text", `${index}`);
+    setIsGrabbed(true);
+  };
+
+  const handleDragLeave = (e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    setDragEntered(false);
+  };
+  const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    setDragEntered(true);
+  };
+  const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    setDragEntered(false);
+    const data = e.dataTransfer.getData("text");
+    handleChangeOrder(index, parseInt(data));
+    console.log("drop", index, parseInt(data));
+  };
   const handleMouseEnter = () => {
     setIsHovered(true);
   };
   const handleMouseLeave = () => {
     setIsHovered(false);
   };
-  const handleMouseDown = () => {};
-  const handleMouseMove = () => {};
-  const handleMouseUp = () => {};
+  const setGrabbable = (b: boolean) => {
+    setIsGrabbable(b);
+  };
+  const getStyle = () => {
+    if (isGrabbed) {
+      return { borderStyle: "solid", borderWidth: "0.1px" };
+    }
+    if (dragEntered) {
+      return { backgroundColor: "white" };
+    }
+  };
   return (
     <div
       className="lbl-label"
+      draggable={isGrabbable ? "true" : "false"}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      onDragLeave={handleDragLeave}
+      onDragOver={handleDragOver}
+      onDrop={handleDrop}
+      style={getStyle()}
+      onDragStart={handleDragStart}
+      onDragEnd={handleDragEnd}
     >
-      <div className="lbl-actions-grabber" draggable="true">
+      <div className="lbl-actions-grabber">
         <MdDragIndicator
           color={isHovered ? "black" : "white"}
-          onMouseDown={handleMouseDown}
-          onMouseMove={handleMouseMove}
-          onMouseUp={handleMouseUp}
+          cursor={"move"}
+          onMouseEnter={() => setGrabbable(true)}
+          onMouseLeave={() => setGrabbable(false)}
         />
       </div>
 
