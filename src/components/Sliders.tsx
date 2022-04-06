@@ -24,12 +24,23 @@ const Sliders: React.FC<IProps> = ({
   const [slidedTime, setSlidedTime] = useState<Date>(new Date());
   const daysRefDiv = useRef() as React.MutableRefObject<HTMLDivElement>;
   const labelsRefDiv = useRef() as React.MutableRefObject<HTMLDivElement>;
+  const slidersRefDiv = useRef() as React.MutableRefObject<HTMLDivElement>;
   const [mouseDown, setMouseDown] = useState(false);
   const [x, setX] = useState(0);
   const add_minutes = function (dt: Date, minutes: number) {
     return new Date(dt.getTime() + minutes * 60000);
   };
-  const reach = 12;
+  const [reach, setReach] = useState(12);
+
+  useEffect(() => {
+    const minWidth = 70;
+    let r = Math.floor(slidersRefDiv.current.clientWidth / (minWidth * 2));
+    if (r > 12) {
+      r = 12;
+    }
+    setReach(r);
+    console.log(r);
+  }, [slidersRefDiv.current.clientWidth]);
 
   useEffect(() => {
     setSlidedTime(add_minutes(time, count));
@@ -53,7 +64,7 @@ const Sliders: React.FC<IProps> = ({
     setMouseDown(false);
   };
   return (
-    <div className="sliders">
+    <div className="sliders" ref={slidersRefDiv}>
       <div className="labels" ref={labelsRefDiv}>
         {locations.map((location, index) => {
           return (
