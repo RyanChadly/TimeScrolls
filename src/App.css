@@ -1,8 +1,9 @@
 .reset-btn {
   position: absolute;
-  background-color: white;
+  background-color: rgb(225, 225, 225);
+  border-style: none;
   border-radius: 5px;
-  border-width: 0.2px;
+  /* border-width: 0.2px; */
 }
 .app {
   color: rgb(70, 70, 70);
