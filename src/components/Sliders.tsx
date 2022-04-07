@@ -40,7 +40,7 @@ const Sliders: React.FC<IProps> = ({
     }
     setReach(r);
     console.log(r);
-  }, [slidersRefDiv.current.clientWidth]);
+  }, [slidersRefDiv.current?.clientWidth]);
 
   useEffect(() => {
     setSlidedTime(add_minutes(time, count));
