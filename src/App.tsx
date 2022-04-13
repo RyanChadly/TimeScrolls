@@ -15,9 +15,9 @@ export default function App() {
   const [count, setCount] = useState(0);
   const [time, setTime] = useState(new Date(Date.now()));
   const [locations, setLocations] = useState<Location[]>([
-    { value: "CET", name: "Warsaw" },
+    { value: "ROK", name: "Warsaw" },
     { value: "Asia/Amman", name: "Jordan" },
-    { value: "IST", name: "India" },
+    { value: "Asia/Calcutta", name: "India" },
     {
       value: "America/New_York",
       name: "NY",
@@ -47,12 +47,12 @@ export default function App() {
   };
   return (
     <div className="app">
+      <h1>TimeScrolls</h1>
       {count !== 0 && (
         <button className="reset-btn" onClick={() => setCount(0)}>
           Reset
         </button>
       )}
-      <AddTimeZoneButton addTimeZone={addTimeZone} />
       <Sliders
         locations={locations}
         time={time}
@@ -61,6 +61,7 @@ export default function App() {
         handleSlide={handleSlide}
         handleChangeOrder={handleChangeOrder}
       />
+      <AddTimeZoneButton addTimeZone={addTimeZone} />
     </div>
   );
 }

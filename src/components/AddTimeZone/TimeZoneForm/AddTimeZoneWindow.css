@@ -1,15 +1,42 @@
-.wrapper {
+.form-wrapper {
+  position: fixed;
+  left: 0;
+  top: 0;
   display: flex;
-}
-.AddTimeZoneWindow {
+  height: 100%;
+  width: 100%;
+  /* margin: auto; */
+  justify-content: center;
+  flex-direction: column;
   z-index: 2;
+}
+.add-time-zone-form {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
   width: 300px;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  padding: 30px;
-  position: absolute;
-  left: 50%;
-  background-color: rgba(255, 255, 255, 0.3);
-  transform: translate(-15%, 0);
+  /* height: 300px; */
+  justify-content: space-around;
+  box-shadow: #00000059 0px 5px 15px;
+  padding: 10px;
+
+  background-color: rgba(255, 255, 255, 0.8);
+
   backdrop-filter: blur(10px);
   border-radius: 5px;
+}
+
+.add-time-zone-form-control {
+  border-width: 0.1px;
+  border-radius: 5px;
+  height: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.submit-btn {
+  border-width: 0.1px;
+  border-radius: 5px;
+  height: 20px;
+  align-self: center;
+  width: 50px;
 }

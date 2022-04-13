@@ -24,7 +24,7 @@ const SearchBar: React.FC<Props> = ({
     const searchWord = event.target.value;
     setWordEntered(searchWord);
     const newFilter = data.filter((value) => {
-      return value.name.toLowerCase().includes(searchWord.toLowerCase());
+      return value.value.toLowerCase().includes(searchWord.toLowerCase());
     });
 
     if (searchWord === "") {
@@ -70,7 +70,7 @@ const SearchBar: React.FC<Props> = ({
                 className="dataItem"
                 id={`item${key}`}
               >
-                <p>{value.name} </p>
+                <p>{`${value.value}`} </p>
               </div>
             );
           })}

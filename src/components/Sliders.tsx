@@ -39,7 +39,6 @@ const Sliders: React.FC<IProps> = ({
       r = 12;
     }
     setReach(r);
-    console.log(r);
   }, [slidersRefDiv.current?.clientWidth]);
 
   useEffect(() => {

@@ -1,22 +1,20 @@
 .btn-wrapper {
+  /* background: rgb(255, 255, 255); */
+  background: linear-gradient(45deg, #fee6b6 0%, #f4a460 100%);
+  width: 40px;
+  height: 40px;
   display: flex;
-}
-#paddingLeft {
-  flex-basis: 15%;
-}
-.btn-popup {
-  display: flex;
-  margin: auto;
-  width: 200px;
-}
-.addIcon {
-  height: 30px;
-  width: 30px;
-  display: grid;
-  place-items: center;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 100%;
+  cursor: pointer;
+  user-select: none;
 }
 
-#addPhrase {
-  height: 30px;
-  padding-top: 6px;
+.button-plus {
+  color: #6f3400;
+  font-weight: lighter;
+  text-align: center;
+  font-size: 25px;
+  align-self: center;
 }

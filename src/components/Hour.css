@@ -5,6 +5,9 @@
   overflow: hidden;
   border: 0.1px solid rgb(197, 197, 197);
   border-radius: 5px;
+  user-select: none;
+  font-size: x-large;
+  font-weight: 100;
 }
 
 .n {
