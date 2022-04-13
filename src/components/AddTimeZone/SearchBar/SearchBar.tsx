@@ -43,6 +43,7 @@ const SearchBar: React.FC<Props> = ({
     setWordEntered(filteredData[key].value);
     setOpenDataResult(false);
     handleSearchResult(filteredData[key]);
+    console.log(filteredData[key]);
   };
   return (
     <div className="search">

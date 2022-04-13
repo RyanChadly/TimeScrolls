@@ -14,8 +14,10 @@ const AddTimeZoneWindow = ({ addTimeZone, handleClose }) => {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (name) {
+    console.log(name);
+    if (name !== "") {
       setSearchResult({ ...searchResult, name: name });
+      console.log(searchResult);
     }
     addTimeZone(searchResult);
   };
@@ -46,7 +48,7 @@ const AddTimeZoneWindow = ({ addTimeZone, handleClose }) => {
           className="submit-btn add-time-zone-form-control"
           type="submit"
           value="Add"
-          disabled={searchResult === {}}
+          disabled={!searchResult.value}
         />
       </form>
     </div>
