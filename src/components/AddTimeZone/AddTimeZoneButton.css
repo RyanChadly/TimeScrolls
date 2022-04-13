@@ -1,4 +1,5 @@
 .btn-wrapper {
+  margin: auto;
   background: linear-gradient(45deg, #0e4061 0%, #1872ad 100%);
   width: 40px;
   height: 40px;
@@ -12,4 +13,6 @@
 
 .button-plus {
   color: #ffffff;
+  font-size: 25px;
+  align-self: center;
 }

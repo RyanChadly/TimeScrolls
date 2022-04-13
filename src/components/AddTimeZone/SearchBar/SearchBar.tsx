@@ -40,7 +40,7 @@ const SearchBar: React.FC<Props> = ({
     setWordEntered("");
   };
   const handleClick = (key: number) => {
-    setWordEntered(filteredData[key].name);
+    setWordEntered(filteredData[key].value);
     setOpenDataResult(false);
     handleSearchResult(filteredData[key]);
   };

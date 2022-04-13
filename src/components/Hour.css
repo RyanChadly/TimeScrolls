@@ -3,7 +3,8 @@
   flex-direction: column;
   justify-content: center;
   overflow: hidden;
-  border: 0.1px solid #0e4061;
+  background: linear-gradient(30deg, #0e406100 0%, #65b2e62b 100%);
+  border: none;
   border-radius: 5px;
   user-select: none;
   font-size: x-large;
@@ -12,13 +13,7 @@
 }
 
 .n {
-  background: linear-gradient(3deg, #0e4061 0%, #65b2e6 100%);
+  background: linear-gradient(30deg, #0e40615e 0%, #65b2e669 100%);
   border: none;
-  /* background-color: #0e4061; */
-  color: white;
+  color: #0e4061;
 }
-
-/* .current {
-  font-weight: bold;
-  background-color: rgb(192, 191, 255);
-} */

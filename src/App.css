@@ -6,7 +6,6 @@
   border-style: none;
   border-radius: 5px;
   color: white;
-  /* font-family: Arial, Helvetica, sans-serif; */
 }
 .app {
   color: rgb(70, 70, 70);
@@ -18,22 +17,4 @@ h1 {
   background: -webkit-linear-gradient(#0e4061, #65b2e6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
-.button-plus-wrapper {
-  /* background: linear-gradient(45deg, #fee6b6 0%, #f4a460 100%); */
-  width: 40px;
-  height: 40px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  border-radius: 100%;
-  cursor: pointer;
-  user-select: none;
-}
-.button-plus {
-  color: #6f3400;
-  font-weight: lighter;
-  text-align: center;
-  font-size: 25px;
-  align-self: center;
 }
