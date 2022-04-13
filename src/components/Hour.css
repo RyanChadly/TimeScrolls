@@ -3,15 +3,18 @@
   flex-direction: column;
   justify-content: center;
   overflow: hidden;
-  border: 0.1px solid rgb(197, 197, 197);
+  border: 0.1px solid #0e4061;
   border-radius: 5px;
   user-select: none;
   font-size: x-large;
   font-weight: 100;
+  color: #0e4061;
 }
 
 .n {
-  background-color: rgb(126, 126, 126);
+  background: linear-gradient(3deg, #0e4061 0%, #65b2e6 100%);
+  border: none;
+  /* background-color: #0e4061; */
   color: white;
 }
 

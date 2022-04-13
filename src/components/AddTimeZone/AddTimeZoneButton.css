@@ -1,6 +1,5 @@
 .btn-wrapper {
-  /* background: rgb(255, 255, 255); */
-  background: linear-gradient(45deg, #fee6b6 0%, #f4a460 100%);
+  background: linear-gradient(45deg, #0e4061 0%, #1872ad 100%);
   width: 40px;
   height: 40px;
   display: flex;

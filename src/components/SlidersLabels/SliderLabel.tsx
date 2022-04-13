@@ -104,6 +104,7 @@ const SliderLabel: React.FC<SliderLabelProp> = ({
       </div>
       <div className="lbl-actions-delete">
         <MdDeleteOutline
+          cursor={"point"}
           onClick={() => handleDelete(index)}
           opacity={isHovered ? 1 : 0}
         />

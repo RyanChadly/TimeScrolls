@@ -1,13 +1,6 @@
 .lbl-label {
-  /* background-color: rgb(231, 231, 231); */
-  background: linear-gradient(45deg, #fee6b6 0%, #f4a460 100%);
-  /* background: rgb(255, 255, 255);
-  background: linear-gradient(
-    45deg,
-    rgb(255, 255, 255) 0%,
-    rgb(179, 251, 255) 35%,
-    rgb(255, 195, 244) 100%
-  ); */
+  background: linear-gradient(45deg, #0e4061 0%, #1872ad 100%);
+  color: white;
   border-radius: 5px;
   display: flex;
   justify-content: space-between;
@@ -37,5 +30,6 @@
   font-size: small;
 }
 .lbl-actions-delete {
+  cursor: pointer;
   align-self: center;
 }

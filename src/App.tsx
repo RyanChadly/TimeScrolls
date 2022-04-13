@@ -15,13 +15,12 @@ export default function App() {
   const [count, setCount] = useState(0);
   const [time, setTime] = useState(new Date(Date.now()));
   const [locations, setLocations] = useState<Location[]>([
-    { value: "ROK", name: "Warsaw" },
-    { value: "Asia/Amman", name: "Jordan" },
-    { value: "Asia/Calcutta", name: "India" },
     {
       value: "America/New_York",
-      name: "NY",
+      name: "HQ",
     },
+    { value: "Europe/Warsaw", name: "GDC" },
+    { value: "PRC", name: "CTC" },
   ]);
   const handleChangeOrder = (destination: number, origin: number) => {
     const itemToMove = locations[origin];
