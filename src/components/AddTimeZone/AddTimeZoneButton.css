@@ -1,5 +1,6 @@
 .btn-wrapper {
   margin: auto;
+  margin-top: 5px;
   background: linear-gradient(45deg, #0e4061 0%, #1872ad 100%);
   width: 40px;
   height: 40px;

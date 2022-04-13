@@ -8,7 +8,7 @@ interface Props {
 
 const Hour: React.FC<Props> = ({ hour, minutes, current }) => {
   const dayNightClassName = (): string => {
-    const day = range(9, 18);
+    const day = range(9, 17);
     if (day.includes(hour)) {
       return "d";
     }
