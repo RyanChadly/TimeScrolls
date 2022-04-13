@@ -1,6 +1,7 @@
 import { useState } from "react";
 import AddTimeZoneWindow from "./TimeZoneForm/AddTimeZoneWindow";
 import "./AddTimeZoneButton.css";
+import { AiOutlinePlus } from "react-icons/ai";
 const AddTimeZoneButton = ({ addTimeZone }) => {
   const [show, setShow] = useState(false);
   const handleClick = () => {
@@ -11,10 +12,8 @@ const AddTimeZoneButton = ({ addTimeZone }) => {
   };
   return (
     <div className="time-zone-wraper">
-      <div className="btn-wrapper">
-        <div className="button-plus" onClick={handleClick}>
-          +
-        </div>
+      <div className="btn-wrapper" onClick={handleClick}>
+        <AiOutlinePlus className="button-plus" />
       </div>
 
       {show && (
