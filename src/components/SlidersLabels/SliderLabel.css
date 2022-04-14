@@ -11,6 +11,7 @@
 
 .lbl-actions-grabber {
   align-self: center;
+  font-size: 25px;
 }
 .lbl-info {
   text-align: center;
@@ -31,6 +32,7 @@
   font-size: small;
 }
 .lbl-actions-delete {
+  font-size: 25px;
   cursor: pointer;
   align-self: center;
 }
