@@ -6,25 +6,28 @@ import "./AddTimeZoneWindow.css";
 const AddTimeZoneWindow = ({ addTimeZone, handleClose }) => {
   const [name, setName] = useState("");
   const [searchResult, setSearchResult] = useState({});
+
   const handleSearchResult = (result) => {
     setSearchResult(result);
   };
   const handleNameChange = (e) => {
     setName(e.target.value);
+    setSearchResult({ ...searchResult, name: e.target.value });
   };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(name);
     if (name !== "") {
-      setSearchResult({ ...searchResult, name: name });
-      console.log(searchResult);
+      addTimeZone({ ...searchResult, name: name });
+    } else {
+      addTimeZone({ ...searchResult, name: searchResult.value });
     }
-    addTimeZone(searchResult);
   };
+
   const handleClick = (e) => {
     if (e.target.className === "form-wrapper") {
       handleClose();
-      console.log(e.target.className);
     }
   };
 

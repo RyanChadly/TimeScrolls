@@ -9,7 +9,7 @@ interface Data {
 interface Props {
   placeholder: string;
   data: Data[];
-  handleSearchResult: (result: Data) => void;
+  handleSearchResult: (result: Data | Object) => void;
 }
 const SearchBar: React.FC<Props> = ({
   placeholder,
@@ -38,12 +38,12 @@ const SearchBar: React.FC<Props> = ({
   const clearInput = () => {
     setFilteredData([]);
     setWordEntered("");
+    handleSearchResult({});
   };
   const handleClick = (key: number) => {
     setWordEntered(filteredData[key].value);
     setOpenDataResult(false);
     handleSearchResult(filteredData[key]);
-    console.log(filteredData[key]);
   };
   return (
     <div className="search">
