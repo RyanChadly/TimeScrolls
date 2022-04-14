@@ -22,6 +22,7 @@ export default function App() {
     { value: "Europe/Warsaw", name: "GDC" },
     { value: "PRC", name: "CTC" },
   ]);
+
   const handleChangeOrder = (destination: number, origin: number) => {
     const itemToMove = locations[origin];
     let newArray = locations;
@@ -29,26 +30,37 @@ export default function App() {
     newArray.splice(destination, 0, itemToMove);
     setLocations(newArray);
   };
+
   const handleSlide = (value: number) => {
     setCount((previous) => previous + value);
   };
+
   const handleDelete = (index: number) => {
     setLocations(locations.filter((_location, i) => i !== index));
   };
-  useEffect(() => {
-    setTimeout(() => {
-      setTime(new Date(Date.now()));
-    }, 1000);
-  }, [time]);
+
+  const handleReset = () => {
+    setCount(0);
+    setTime(new Date(Date.now()));
+  };
 
   const addTimeZone = (data: { value: string; name: string }) => {
     setLocations([...locations, data]);
   };
+
+  useEffect(() => {
+    setTimeout(() => {
+      if (count === 0) {
+        setTime(new Date(Date.now()));
+      }
+    }, 1000);
+  }, [time, count]);
+
   return (
     <div className="app">
       <h1>TimeScrolls</h1>
       {count !== 0 && (
-        <button className="reset-btn" onClick={() => setCount(0)}>
+        <button className="reset-btn" onClick={handleReset}>
           Reset
         </button>
       )}
