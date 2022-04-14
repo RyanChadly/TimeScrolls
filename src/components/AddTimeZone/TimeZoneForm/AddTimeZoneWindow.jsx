@@ -2,6 +2,7 @@ import { useState } from "react";
 import { timezones } from "../../../data/timezones";
 import SearchBar from "../SearchBar/SearchBar";
 import "./AddTimeZoneWindow.css";
+import ColorSelector from "../ColorSelector/ColorSelector";
 
 const AddTimeZoneWindow = ({ addTimeZone, handleClose }) => {
   const [name, setName] = useState("");
@@ -47,6 +48,7 @@ const AddTimeZoneWindow = ({ addTimeZone, handleClose }) => {
           placeholder="Select a timezone"
           handleSearchResult={handleSearchResult}
         />
+        <ColorSelector />
         <input
           className="submit-btn add-time-zone-form-control"
           type="submit"
