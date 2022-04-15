@@ -12,9 +12,11 @@ const AddTimeZoneButton = ({ addTimeZone }) => {
   };
   return (
     <div className="time-zone-wraper">
-      <div className="btn-wrapper" onClick={handleClick}>
-        <AiOutlinePlus className="button-plus" />
-      </div>
+      {!show && (
+        <div className="btn-wrapper" onClick={handleClick}>
+          <AiOutlinePlus className="button-plus" />
+        </div>
+      )}
 
       {show && (
         <AddTimeZoneWindow
