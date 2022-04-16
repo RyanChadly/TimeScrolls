@@ -1,7 +1,12 @@
 import { useEffect, useRef, useState } from "react";
-import { HandleChangeOrder, HandleDelete, HandleSlide, Location } from "../App";
+import {
+  HandleChangeOrder,
+  HandleDelete,
+  HandleSlide,
+  Location,
+} from "../../App";
 import Day from "./Day";
-import SliderLabel from "./SlidersLabels/SliderLabel";
+import SliderLabel from "../SlidersLabels/SliderLabel";
 import "./Sliders.css";
 
 interface IProps {

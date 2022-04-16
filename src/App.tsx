@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import AddTimeZoneButton from "./components/AddTimeZone/AddTimeZoneButton";
-import Sliders from "./components/Sliders";
+import Sliders from "./components/Sliders/Sliders";
 
 export interface Location {
   value: string;
   name: string;
+  color?: string;
 }
 export type HandleDelete = (i: number) => void;
 export type HandleSlide = (a: number) => void;
@@ -19,9 +20,10 @@ export default function App() {
     {
       value: "America/New_York",
       name: "HQ",
+      color: "red",
     },
-    { value: "Europe/Warsaw", name: "GDC" },
-    { value: "PRC", name: "CTC" },
+    { value: "Europe/Warsaw", name: "GDC", color: "yellow" },
+    { value: "PRC", name: "CTC", color: "green" },
   ]);
 
   const handleChangeOrder = (destination: number, origin: number) => {
