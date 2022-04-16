@@ -1,3 +1,16 @@
+export interface Timezone {
+  "Country code(s)"?: string;
+  value?: string;
+  "Area(s) covered"?: string;
+  Type?: string;
+  "UTC offset\n±hh:mm"?: string;
+  "Time zone\nabbreviation"?: string;
+  "Source\nfile"?: string;
+  Notes?: string;
+  FIELD9?: string;
+  FIELD10?: string;
+  name?: string;
+}
 export const timezones = [
   {
     "Country code(s)": "STD",

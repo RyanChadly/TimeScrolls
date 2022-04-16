@@ -10,6 +10,7 @@ export interface Location {
 export type HandleDelete = (i: number) => void;
 export type HandleSlide = (a: number) => void;
 export type HandleChangeOrder = (dest: number, orig: number) => void;
+export type AddTimeZone = (location: Location) => void;
 
 export default function App() {
   const [count, setCount] = useState(0);

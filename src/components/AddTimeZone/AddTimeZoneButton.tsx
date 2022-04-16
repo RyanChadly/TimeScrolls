@@ -2,7 +2,15 @@ import { useState } from "react";
 import AddTimeZoneWindow from "./TimeZoneForm/AddTimeZoneWindow";
 import "./AddTimeZoneButton.css";
 import { AiOutlinePlus } from "react-icons/ai";
-const AddTimeZoneButton = ({ addTimeZone }) => {
+import { AddTimeZone } from "../../App";
+
+interface AddTimeZoneButtonProps {
+  addTimeZone: AddTimeZone;
+}
+export type HandleClose = () => void;
+const AddTimeZoneButton: React.FC<AddTimeZoneButtonProps> = ({
+  addTimeZone,
+}) => {
   const [show, setShow] = useState(false);
   const handleClick = () => {
     setShow(!show);

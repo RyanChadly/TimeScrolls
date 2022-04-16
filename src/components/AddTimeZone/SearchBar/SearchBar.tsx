@@ -1,22 +1,19 @@
 import React, { useState } from "react";
 import "./SearchBar.css";
-import { AiOutlineSearch } from "react-icons/ai";
-import { AiOutlineClose } from "react-icons/ai";
-interface Data {
-  value: string;
-  name: string;
-}
+import { AiOutlineSearch, AiOutlineClose } from "react-icons/ai";
+import { Timezone } from "../../../data/timezones";
+
 interface Props {
   placeholder: string;
-  data: Data[];
-  handleSearchResult: (result: Data | Object) => void;
+  data: Timezone[];
+  handleSearchResult: (result: Timezone) => void;
 }
 const SearchBar: React.FC<Props> = ({
   placeholder,
   data,
   handleSearchResult,
 }) => {
-  const [filteredData, setFilteredData] = useState<Data[] | never[]>([]);
+  const [filteredData, setFilteredData] = useState<Timezone[]>([]);
   const [wordEntered, setWordEntered] = useState("");
   const [openDataResult, setOpenDataResult] = useState(false);
 
@@ -24,7 +21,7 @@ const SearchBar: React.FC<Props> = ({
     const searchWord = event.target.value;
     setWordEntered(searchWord);
     const newFilter = data.filter((value) => {
-      return value.value.toLowerCase().includes(searchWord.toLowerCase());
+      return value.value?.toLowerCase().includes(searchWord.toLowerCase());
     });
 
     if (searchWord === "") {
@@ -41,7 +38,9 @@ const SearchBar: React.FC<Props> = ({
     handleSearchResult({});
   };
   const handleClick = (key: number) => {
-    setWordEntered(filteredData[key].value);
+    if (filteredData[key].value !== undefined) {
+      setWordEntered(filteredData[key].value as string);
+    }
     setOpenDataResult(false);
     handleSearchResult(filteredData[key]);
   };

@@ -1,32 +1,44 @@
 import { useState } from "react";
-import { timezones } from "../../../data/timezones";
+import { Timezone, timezones } from "../../../data/timezones";
 import SearchBar from "../SearchBar/SearchBar";
 import "./AddTimeZoneWindow.css";
 import ColorSelector from "../ColorSelector/ColorSelector";
+import { AddTimeZone } from "../../../App";
+import { HandleClose } from "../AddTimeZoneButton";
 
-const AddTimeZoneWindow = ({ addTimeZone, handleClose }) => {
+interface AddTimeZoneWindowProps {
+  addTimeZone: AddTimeZone;
+  handleClose: HandleClose;
+}
+const AddTimeZoneWindow: React.FC<AddTimeZoneWindowProps> = ({
+  addTimeZone,
+  handleClose,
+}) => {
   const [name, setName] = useState("");
-  const [searchResult, setSearchResult] = useState({});
+  const [searchResult, setSearchResult] = useState<Timezone>({});
 
-  const handleSearchResult = (result) => {
+  const handleSearchResult = (result: Timezone) => {
     setSearchResult(result);
   };
-  const handleNameChange = (e) => {
+
+  const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value);
     setSearchResult({ ...searchResult, name: e.target.value });
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     console.log(name);
-    if (name !== "") {
-      addTimeZone({ ...searchResult, name: name });
-    } else {
-      addTimeZone({ ...searchResult, name: searchResult.value });
+    if (searchResult.value) {
+      if (name !== "") {
+        addTimeZone({ value: searchResult.value, name: name });
+      } else {
+        addTimeZone({ value: searchResult.value, name: searchResult.value });
+      }
     }
   };
 
-  const handleClick = (e) => {
+  const handleClick = (e: any) => {
     if (e.target.className === "form-wrapper") {
       handleClose();
     }
@@ -43,7 +55,7 @@ const AddTimeZoneWindow = ({ addTimeZone, handleClose }) => {
           onChange={handleNameChange}
         />
         <SearchBar
-          className="timezone-input add-time-zone-form-control"
+          // className="timezone-input add-time-zone-form-control"
           data={timezones}
           placeholder="Select a timezone"
           handleSearchResult={handleSearchResult}
