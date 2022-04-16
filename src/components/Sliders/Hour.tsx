@@ -21,7 +21,7 @@ const Hour: React.FC<Props> = ({ hour, minutes, current, colorName }) => {
         //   getColor()?.lighter
         // } 100%)`,
         color: getColor()?.dark,
-        borderWidth: "1px 0.5px 1px 0.5px",
+        borderWidth: "0.1px 0.5px 0.1px 0.5px",
         border: ` solid ${getColor()?.lighter}`,
       };
     } else {
@@ -30,8 +30,8 @@ const Hour: React.FC<Props> = ({ hour, minutes, current, colorName }) => {
           getColor()?.lighter
         } 100%)`,
         color: getColor()?.dark,
-        borderWidth: "1px 0.5px 1px 0.5px",
-        border: ` solid ${getColor()?.lighter}`,
+        // borderWidth: "1px 0.5px 1px 0.5px",
+        // border: ` solid ${getColor()?.lighter}`,
       };
     }
   };

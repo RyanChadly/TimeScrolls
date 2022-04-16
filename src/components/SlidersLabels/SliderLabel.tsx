@@ -58,9 +58,9 @@ const SliderLabel: React.FC<SliderLabelProp> = ({
 
   const getBackgroundStyle = () => {
     return `linear-gradient(45deg, ${
-      colors.find((color) => color.name === location.color)?.dark
+      colors.find((color) => color.name === location.color)?.mediumDark
     } 0%, ${
-      colors.find((color) => color.name === location.color)?.lighter
+      colors.find((color) => color.name === location.color)?.mediumDark
     } 100%)`;
   };
 
