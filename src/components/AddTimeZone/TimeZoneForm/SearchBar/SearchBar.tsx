@@ -68,7 +68,7 @@ const SearchBar: React.FC<Props> = ({
               <div
                 onClick={() => handleClick(key)}
                 className="dataItem"
-                id={`item${key}`}
+                key={`item${key}`}
               >
                 <p>{`${value.value}`} </p>
               </div>

@@ -19,11 +19,11 @@ export default function App() {
   const [locations, setLocations] = useState<Location[]>([
     {
       value: "America/New_York",
-      name: "HQ",
+      name: "New-York",
       color: "blue",
     },
-    { value: "Europe/Warsaw", name: "GDC", color: "yellow" },
-    { value: "PRC", name: "CTC", color: "green" },
+    { value: "Europe/Warsaw", name: "Warsaw", color: "light-green" },
+    { value: "PRC", name: "Shanghai", color: "light-blue" },
   ]);
   const [time, setTime] = useState(new Date(Date.now()));
 

@@ -1,11 +1,12 @@
 .reset-btn {
-  position: fixed;
+  /* position: fixed;
   top: 10px;
-  left: 10px;
+  left: 10px; */
   background: linear-gradient(45deg, #0e4061 0%, #1872ad 100%);
   border-style: none;
   border-radius: 5px;
   color: white;
+  font-family: "Source Sans Pro", sans-serif;
 }
 .app {
   color: rgb(70, 70, 70);
@@ -17,4 +18,5 @@ h1 {
   background: -webkit-linear-gradient(#0e4061, #65b2e6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  font-family: "Source Sans Pro", sans-serif;
 }

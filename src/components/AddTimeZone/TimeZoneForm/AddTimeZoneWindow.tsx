@@ -30,7 +30,6 @@ const AddTimeZoneWindow: React.FC<AddTimeZoneWindowProps> = ({
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log(name);
     if (searchResult.value) {
       if (name !== "") {
         addTimeZone({

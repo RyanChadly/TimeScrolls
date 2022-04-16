@@ -44,7 +44,6 @@ const SliderLabel: React.FC<SliderLabelProp> = ({
     setDragEntered(false);
     const data = e.dataTransfer.getData("text");
     handleChangeOrder(index, parseInt(data));
-    console.log("drop", index, parseInt(data));
   };
   const handleMouseEnter = () => {
     setIsHovered(true);
