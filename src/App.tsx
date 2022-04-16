@@ -16,23 +16,23 @@ export type AddTimeZone = (location: Location) => void;
 
 export default function App() {
   const [count, setCount] = useState(0);
-  const [time, setTime] = useState(new Date(Date.now()));
   const [locations, setLocations] = useState<Location[]>([
     {
       value: "America/New_York",
       name: "HQ",
-      color: "red",
+      color: "blue",
     },
     { value: "Europe/Warsaw", name: "GDC", color: "yellow" },
-    { value: "PRC", name: "CTC", color: "orange" },
+    { value: "PRC", name: "CTC", color: "green" },
   ]);
+  const [time, setTime] = useState(new Date(Date.now()));
 
   const handleChangeOrder = (destination: number, origin: number) => {
     const itemToMove = locations[origin];
     let newArray = locations;
     newArray.splice(origin, 1);
     newArray.splice(destination, 0, itemToMove);
-    setLocations(newArray);
+    setLocations([...newArray]);
   };
 
   const handleSlide = (value: number) => {
@@ -50,7 +50,6 @@ export default function App() {
 
   const addTimeZone = (data: Location) => {
     setLocations([...locations, data]);
-    console.log("🚀 ~ file: App.tsx ~ line 52 ~ addTimeZone ~ data", data);
   };
 
   useEffect(() => {
