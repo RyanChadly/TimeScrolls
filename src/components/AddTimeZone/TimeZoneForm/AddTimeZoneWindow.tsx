@@ -5,6 +5,7 @@ import "./AddTimeZoneWindow.css";
 import ColorSelector from "./ColorSelector/ColorSelector";
 import { AddTimeZone } from "../../../App";
 import { HandleClose } from "../AddTimeZoneButton";
+import { ColorName, defaultColorName } from "../../../data/colors";
 
 interface AddTimeZoneWindowProps {
   addTimeZone: AddTimeZone;
@@ -16,6 +17,7 @@ const AddTimeZoneWindow: React.FC<AddTimeZoneWindowProps> = ({
 }) => {
   const [name, setName] = useState("");
   const [searchResult, setSearchResult] = useState<Timezone>({});
+  const [colorName, setColorName] = useState<ColorName>(defaultColorName);
 
   const handleSearchResult = (result: Timezone) => {
     setSearchResult(result);
@@ -31,9 +33,17 @@ const AddTimeZoneWindow: React.FC<AddTimeZoneWindowProps> = ({
     console.log(name);
     if (searchResult.value) {
       if (name !== "") {
-        addTimeZone({ value: searchResult.value, name: name });
+        addTimeZone({
+          value: searchResult.value,
+          name: name,
+          color: colorName,
+        });
       } else {
-        addTimeZone({ value: searchResult.value, name: searchResult.value });
+        addTimeZone({
+          value: searchResult.value,
+          name: searchResult.value,
+          color: colorName,
+        });
       }
     }
   };
@@ -42,6 +52,10 @@ const AddTimeZoneWindow: React.FC<AddTimeZoneWindowProps> = ({
     if (e.target.className === "form-wrapper") {
       handleClose();
     }
+  };
+
+  const handleColorChange = (c: ColorName) => {
+    setColorName(c);
   };
 
   return (
@@ -55,12 +69,11 @@ const AddTimeZoneWindow: React.FC<AddTimeZoneWindowProps> = ({
           onChange={handleNameChange}
         />
         <SearchBar
-          // className="timezone-input add-time-zone-form-control"
           data={timezones}
           placeholder="Select a timezone"
           handleSearchResult={handleSearchResult}
         />
-        <ColorSelector />
+        <ColorSelector handleChange={handleColorChange} />
         <input
           className="submit-btn add-time-zone-form-control"
           type="submit"

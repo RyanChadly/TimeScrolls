@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { MdDeleteOutline, MdDragIndicator } from "react-icons/md";
 import { HandleChangeOrder, HandleDelete, Location } from "../../App";
+import { colors } from "../../data/colors";
 import "./SliderLabel.css";
 
 interface SliderLabelProp {
@@ -54,13 +55,32 @@ const SliderLabel: React.FC<SliderLabelProp> = ({
   const setGrabbable = (b: boolean) => {
     setIsGrabbable(b);
   };
+
+  const getBackgroundStyle = () => {
+    return `linear-gradient(45deg, ${
+      colors.find((color) => color.name === location.color)?.dark
+    } 0%, ${
+      colors.find((color) => color.name === location.color)?.lighter
+    } 100%)`;
+  };
+
   const getStyle = () => {
     if (isGrabbed) {
-      return { borderStyle: "solid", borderWidth: "0.1px" };
+      return {
+        borderStyle: "solid",
+        borderWidth: "0.1px",
+        background: getBackgroundStyle(),
+      };
     }
     if (dragEntered) {
-      return { backgroundColor: "white" };
+      return {
+        backgroundColor: colors.find((color) => color.name === location.color)
+          ?.base,
+      };
     }
+    return {
+      background: getBackgroundStyle(),
+    };
   };
   return (
     <div

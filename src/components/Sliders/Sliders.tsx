@@ -96,7 +96,12 @@ const Sliders: React.FC<IProps> = ({
       >
         {locations.map((location) => {
           return (
-            <Day time={slidedTime} timeZone={location.value} reach={reach} />
+            <Day
+              time={slidedTime}
+              timeZone={location.value}
+              reach={reach}
+              colorName={location.color}
+            />
           );
         })}
       </div>

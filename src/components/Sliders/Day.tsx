@@ -2,13 +2,15 @@ import Hour from "./Hour";
 import range from "lodash/range";
 import "./Day.css";
 import { AiFillCaretDown } from "react-icons/ai";
+import { ColorName } from "../../data/colors";
 
 interface Props {
   time: Date;
   timeZone: string;
   reach: number;
+  colorName: ColorName;
 }
-const Day: React.FC<Props> = ({ time, timeZone, reach }) => {
+const Day: React.FC<Props> = ({ time, timeZone, reach, colorName }) => {
   const rangeBefore = range(-reach, 0, 1).map((h) => addHours(h));
   const rangeAfter = range(0, reach + 1, 1).map((h) => addHours(h));
   const hours = [...rangeBefore, ...rangeAfter];
@@ -50,6 +52,7 @@ const Day: React.FC<Props> = ({ time, timeZone, reach }) => {
               hour={h}
               minutes={minutesProportion(index)}
               current={h === hour}
+              colorName={colorName}
             />
           );
         })}

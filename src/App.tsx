@@ -2,11 +2,12 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import AddTimeZoneButton from "./components/AddTimeZone/AddTimeZoneButton";
 import Sliders from "./components/Sliders/Sliders";
+import { ColorName } from "./data/colors";
 
 export interface Location {
   value: string;
   name: string;
-  color?: string;
+  color: ColorName;
 }
 export type HandleDelete = (i: number) => void;
 export type HandleSlide = (a: number) => void;
@@ -23,7 +24,7 @@ export default function App() {
       color: "red",
     },
     { value: "Europe/Warsaw", name: "GDC", color: "yellow" },
-    { value: "PRC", name: "CTC", color: "green" },
+    { value: "PRC", name: "CTC", color: "orange" },
   ]);
 
   const handleChangeOrder = (destination: number, origin: number) => {
@@ -47,8 +48,9 @@ export default function App() {
     setTime(new Date(Date.now()));
   };
 
-  const addTimeZone = (data: { value: string; name: string }) => {
+  const addTimeZone = (data: Location) => {
     setLocations([...locations, data]);
+    console.log("🚀 ~ file: App.tsx ~ line 52 ~ addTimeZone ~ data", data);
   };
 
   useEffect(() => {

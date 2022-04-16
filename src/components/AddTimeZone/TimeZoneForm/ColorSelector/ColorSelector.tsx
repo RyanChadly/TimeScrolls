@@ -1,12 +1,18 @@
 import { useState } from "react";
-import { colors } from "../../../../data/colors";
+import { ColorName, colors, defaultColorName } from "../../../../data/colors";
 import "./ColorSelector.css";
 
-const ColorSelector = () => {
-  const [selectedColor, setSelectedColor] = useState("blue");
+type HandleChangeColor = (color: ColorName) => void;
 
-  const handleClick = (name: string) => {
+interface ColorSelectorProps {
+  handleChange: HandleChangeColor;
+}
+const ColorSelector: React.FC<ColorSelectorProps> = ({ handleChange }) => {
+  const [selectedColor, setSelectedColor] = useState(defaultColorName);
+
+  const handleClick = (name: ColorName) => {
     setSelectedColor(name);
+    handleChange(name);
   };
   return (
     <div className={"color-selector"}>
