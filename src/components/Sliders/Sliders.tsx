@@ -72,16 +72,14 @@ const Sliders: React.FC<IProps> = ({
       <div className="labels" ref={labelsRefDiv}>
         {locations.map((location, index) => {
           return (
-            <>
-              <div className="dropLocation"></div>
-              <SliderLabel
-                location={location}
-                slidedTime={slidedTime}
-                index={index}
-                handleDelete={handleDelete}
-                handleChangeOrder={handleChangeOrder}
-              />
-            </>
+            <SliderLabel
+              key={index}
+              location={location}
+              slidedTime={slidedTime}
+              index={index}
+              handleDelete={handleDelete}
+              handleChangeOrder={handleChangeOrder}
+            />
           );
         })}
       </div>
@@ -94,9 +92,10 @@ const Sliders: React.FC<IProps> = ({
         ref={daysRefDiv}
         style={{ cursor: mouseDown ? "grabbing" : "grab", userSelect: "none" }}
       >
-        {locations.map((location) => {
+        {locations.map((location, index) => {
           return (
             <Day
+              key={`Day${index}`}
               time={slidedTime}
               timeZone={location.value}
               reach={reach}

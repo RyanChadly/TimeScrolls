@@ -49,6 +49,7 @@ const Day: React.FC<Props> = ({ time, timeZone, reach, colorName }) => {
         {hours.map((h, index) => {
           return (
             <Hour
+              key={index}
               hour={h}
               minutes={minutesProportion(index)}
               current={h === hour}
