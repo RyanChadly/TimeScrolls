@@ -1,8 +1,5 @@
 .reset-btn {
-  /* position: fixed;
-  top: 10px;
-  left: 10px; */
-  background: linear-gradient(45deg, #0e4061 0%, #1872ad 100%);
+  background: linear-gradient(45deg, #034063 0%, #0693e3 100%);
   border-style: none;
   border-radius: 5px;
   color: white;
@@ -15,8 +12,12 @@
 h1 {
   text-align: center;
   font-size: 36px;
-  background: -webkit-linear-gradient(#0e4061, #65b2e6);
+  background: -webkit-linear-gradient(#034063, #0693e3);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-family: "Source Sans Pro", sans-serif;
+}
+
+.reset-btn:hover {
+  background: linear-gradient(45deg, #335c4c 0%, #7bdcb5 100%);
 }

@@ -1,7 +1,7 @@
 .btn-wrapper {
   margin: auto;
   margin-top: 5px;
-  background: linear-gradient(45deg, #0e4061 0%, #1872ad 100%);
+  background: linear-gradient(45deg, #034063 0%, #0693e3 100%);
   width: 40px;
   height: 40px;
   display: flex;
@@ -10,6 +10,9 @@
   border-radius: 100%;
   cursor: pointer;
   user-select: none;
+}
+.btn-wrapper:hover {
+  background: linear-gradient(45deg, #335c4c 0%, #7bdcb5 100%);
 }
 
 .button-plus {
