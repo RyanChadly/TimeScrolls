@@ -32,14 +32,16 @@ const Sliders: React.FC<IProps> = ({
   const slidersRefDiv = useRef() as React.MutableRefObject<HTMLDivElement>;
   const [mouseDown, setMouseDown] = useState(false);
   const [x, setX] = useState(0);
+  const [reach, setReach] = useState(12);
+
   const add_minutes = function (dt: Date, minutes: number) {
     return new Date(dt.getTime() + minutes * 60000);
   };
-  const [reach, setReach] = useState(12);
 
   useEffect(() => {
     const minWidth = 70;
     let r = Math.floor(slidersRefDiv.current.clientWidth / (minWidth * 2));
+    console.log("🚀 ~ file: Sliders.tsx ~ line 44 ~ useEffect ~ r", r);
     if (r > 12) {
       r = 12;
     }
@@ -54,6 +56,7 @@ const Sliders: React.FC<IProps> = ({
     setMouseDown(true);
     setX(e.clientX);
   };
+
   const handleMouseMove = (e: any) => {
     if (mouseDown) {
       const maxWidth = daysRefDiv.current.clientWidth;
@@ -64,9 +67,11 @@ const Sliders: React.FC<IProps> = ({
       handleSlide(-deltaMinutes);
     }
   };
+
   const handleMouseUp = () => {
     setMouseDown(false);
   };
+
   return (
     <div className="sliders" ref={slidersRefDiv}>
       <div className="labels" ref={labelsRefDiv}>
