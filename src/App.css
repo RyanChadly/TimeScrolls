@@ -1,10 +1,19 @@
+.reset-btn-wrapper {
+  height: 20px;
+  display: flex;
+  justify-content: center;
+}
 .reset-btn {
-  background: linear-gradient(45deg, #034063 0%, #0693e3 100%);
+  background-color: #0693e3;
   border-style: none;
   border-radius: 5px;
   color: white;
   font-family: "Source Sans Pro", sans-serif;
+  -webkit-transition: background-color 200ms linear;
+  -ms-transition: background-color 200ms linear;
+  transition: background-color 200ms linear;
 }
+
 .app {
   color: rgb(70, 70, 70);
 }
@@ -19,5 +28,5 @@ h1 {
 }
 
 .reset-btn:hover {
-  background: linear-gradient(45deg, #335c4c 0%, #7bdcb5 100%);
+  background-color: #7bdcb5;
 }

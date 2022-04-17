@@ -9,12 +9,13 @@
   user-select: none;
   font-size: x-large;
   font-weight: 100;
-  color: #0e4061;
+  /* color: #0e4061; */
   font-family: "Source Sans Pro", sans-serif;
 }
 
 .n {
   /* background: linear-gradient(30deg, #0e40615e 0%, #65b2e669 100%);
   border: none; */
-  color: #0e4061;
+  /* color: #0e4061; */
+  font-size: large;
 }

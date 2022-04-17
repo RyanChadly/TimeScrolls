@@ -64,11 +64,18 @@ export default function App() {
   return (
     <div className="app">
       <h1>TimeScrolls</h1>
-      {count !== 0 && (
-        <button className="reset-btn" onClick={handleReset}>
-          Reset
-        </button>
-      )}
+      <div className="reset-btn-wrapper">
+        {count !== 0 && (
+          <button
+            className="reset-btn"
+            onClick={handleReset}
+            disabled={count === 0}
+          >
+            Back to the present
+          </button>
+        )}
+      </div>
+
       <Sliders
         locations={locations}
         time={time}

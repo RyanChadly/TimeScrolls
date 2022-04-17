@@ -18,16 +18,17 @@ const Hour: React.FC<Props> = ({ hour, minutes, current, colorName }) => {
     if (day.includes(hour)) {
       return {
         color: getColor()?.dark,
-        background: `linear-gradient(30deg, white 0%, ${
+        background: `linear-gradient(170deg, white 0%, ${
           getColor()?.lighter
         }55 100%)`,
       };
     } else {
       return {
-        background: `linear-gradient(30deg, white 0%, ${
+        background: `linear-gradient(170deg, ${getColor()?.lighter}55 0%, ${
           getColor()?.lighter
         } 100%)`,
         color: getColor()?.dark,
+        // fontSize: "large",
       };
     }
   };

@@ -1,7 +1,7 @@
 .btn-wrapper {
   margin: auto;
   margin-top: 5px;
-  background: linear-gradient(45deg, #034063 0%, #0693e3 100%);
+  background-color: #0693e3;
   width: 40px;
   height: 40px;
   display: flex;
@@ -10,9 +10,12 @@
   border-radius: 100%;
   cursor: pointer;
   user-select: none;
+  -webkit-transition: background-color 200ms linear;
+  -ms-transition: background-color 200ms linear;
+  transition: background-color 200ms linear;
 }
 .btn-wrapper:hover {
-  background: linear-gradient(45deg, #335c4c 0%, #7bdcb5 100%);
+  background-color: #7bdcb5;
 }
 
 .button-plus {
