@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { MdDeleteOutline, MdDragIndicator } from "react-icons/md";
+import { MdDragIndicator } from "react-icons/md";
+import { TiDeleteOutline } from "react-icons/ti";
 import { HandleChangeOrder, HandleDelete, Location } from "../../App";
 import { colors } from "../../data/colors";
 import "./SliderLabel.css";
@@ -122,7 +123,7 @@ const SliderLabel: React.FC<SliderLabelProp> = ({
         </div>
       </div>
       <div className="lbl-actions-delete">
-        <MdDeleteOutline
+        <TiDeleteOutline
           cursor={"point"}
           onClick={() => handleDelete(index)}
           opacity={isHovered ? 1 : 0}
