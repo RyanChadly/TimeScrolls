@@ -22,8 +22,9 @@ export default function App() {
       name: "New-York",
       color: "blue",
     },
-    { value: "Europe/Warsaw", name: "Warsaw", color: "light-green" },
-    { value: "PRC", name: "Shanghai", color: "light-blue" },
+    { value: "Europe/Paris", name: "Paris", color: "green" },
+    { value: "Asia/Calcutta", name: "New-Delhi", color: "red" },
+    { value: "PRC", name: "Shanghai", color: "yellow" },
   ]);
   const [time, setTime] = useState(new Date(Date.now()));
 
