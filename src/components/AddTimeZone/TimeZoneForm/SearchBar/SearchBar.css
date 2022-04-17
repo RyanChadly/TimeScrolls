@@ -7,15 +7,12 @@
   border-width: 0.2px;
   border-radius: 5px;
   height: 20px;
-  /* padding: 5px; */
-  /* height: 20px; */
   width: 100%;
 }
 
 .searchIcon {
   border-color: black;
   border-width: 2px;
-  /* height: 31px; */
   height: 20px;
   width: 30px;
   display: grid;
@@ -28,16 +25,14 @@ input:focus {
 
 .dataResult {
   margin-top: 5px;
-  width: 240px;
+  width: 270px;
+  height: 200px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  overflow: hidden;
-  overflow-y: auto;
+  /* overflow: hidden; */
+  overflow-y: scroll;
   backdrop-filter: blur(5px);
   border-radius: 5px;
-}
-
-.dataResult::-webkit-scrollbar {
-  display: none;
+  overflow: scroll;
 }
 
 .dataResult .dataItem {
@@ -45,6 +40,7 @@ input:focus {
   width: 100%;
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
 .dataItem p {
@@ -52,8 +48,7 @@ input:focus {
 }
 
 .dataItem:hover {
-  background-color: rgba(173, 173, 173, 0.3);
-  backdrop-filter: blur(5px);
+  background-color: rgb(207, 207, 207);
 }
 
 #clearBtn {

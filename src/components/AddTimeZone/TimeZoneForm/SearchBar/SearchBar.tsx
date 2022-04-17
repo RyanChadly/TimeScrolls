@@ -26,16 +26,18 @@ const SearchBar: React.FC<Props> = ({
 
     if (searchWord === "") {
       setFilteredData([]);
+      setOpenDataResult(false);
     } else {
       setFilteredData(newFilter);
+      setOpenDataResult(true);
     }
-    setOpenDataResult(true);
   };
 
   const clearInput = () => {
     setFilteredData([]);
     setWordEntered("");
     handleSearchResult({});
+    setOpenDataResult(false);
   };
   const handleClick = (key: number) => {
     if (filteredData[key].value !== undefined) {
@@ -63,7 +65,7 @@ const SearchBar: React.FC<Props> = ({
       </div>
       {openDataResult && (
         <div className="dataResult">
-          {filteredData.slice(0, 15).map((value, key) => {
+          {filteredData.map((value, key) => {
             return (
               <div
                 onClick={() => handleClick(key)}
