@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import AddTimeZoneButton from "./components/AddTimeZone/AddTimeZoneButton";
+import Save from "./components/Save/Save";
 import Sliders from "./components/Sliders/Sliders";
 import { ColorName } from "./data/colors";
 
@@ -61,6 +62,13 @@ export default function App() {
     }, 1000);
   }, [time, count]);
 
+  useEffect(() => {
+    const cachedLocation = getCookie("locations");
+    if (cachedLocation !== "") {
+      setLocations(JSON.parse(cachedLocation));
+    }
+  }, []);
+
   return (
     <div className="app">
       <h1>TimeScrolls</h1>
@@ -84,7 +92,23 @@ export default function App() {
         handleSlide={handleSlide}
         handleChangeOrder={handleChangeOrder}
       />
+      <Save locations={locations} />
       <AddTimeZoneButton addTimeZone={addTimeZone} />
     </div>
   );
+}
+
+function getCookie(cname: string) {
+  let name = cname + "=";
+  let ca = document.cookie.split(";");
+  for (const element of ca) {
+    let c = element;
+    while (c.charAt(0) === " ") {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) === 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
 }
