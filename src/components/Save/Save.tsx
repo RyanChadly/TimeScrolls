@@ -8,6 +8,7 @@ interface SaveProps {
 
 const Save: React.FC<SaveProps> = ({ locations }) => {
   const [visible, setVisible] = useState(false);
+  const [originalLocations] = useState(locations);
   const handleSave = () => {
     setCookie("locations", JSON.stringify(locations), 365);
     setVisible(false);
@@ -17,8 +18,14 @@ const Save: React.FC<SaveProps> = ({ locations }) => {
     const cachedLocation = getCookie("locations");
     if (cachedLocation !== "") {
       setVisible(!isEqual(locations, JSON.parse(cachedLocation)));
+    } else {
+      if (originalLocations === locations) {
+        setVisible(false);
+      } else {
+        setVisible(true);
+      }
     }
-  }, [locations]);
+  }, [locations, originalLocations]);
 
   return (
     <div className="save-wrapper">
