@@ -32,32 +32,21 @@ const Sliders: React.FC<IProps> = ({
   const slidersRefDiv = useRef() as React.MutableRefObject<HTMLDivElement>;
   const [mouseDown, setMouseDown] = useState(false);
   const [x, setX] = useState(0);
-  const [reach, setReach] = useState(12);
+  const [reach, setReach] = useState(getReach());
 
   const add_minutes = function (dt: Date, minutes: number) {
     return new Date(dt.getTime() + minutes * 60000);
   };
-  window.addEventListener("resize", adaptWidth);
-  function adaptWidth() {
-    const minWidth = 40;
-    let r = Math.floor(daysRefDiv.current?.clientWidth / (minWidth * 2));
-    console.log("🚀 ~ file: Sliders.tsx ~ line 44 ~ useEffect ~ r", r);
-    // if (r > 12) {
-    //   r = 12;
-    // }
-    setReach(r);
-  }
-  // console.log(daysRefDiv.current?.clientWidth);
-  // useLayoutEffect(() => {
-  //   const minWidth = 50;
-  //   let r = Math.floor(daysRefDiv.current.clientWidth / (minWidth * 2));
-  //   console.log("🚀 ~ file: Sliders.tsx ~ line 44 ~ useEffect ~ r", r);
-  //   if (r > 12) {
-  //     r = 12;
-  //   }
-  //   setReach(r);
-  // }, [daysRefDiv.current?.clientWidth]); // try another way to know the width of this stuffffffff
 
+  window.addEventListener("resize", adaptWidth);
+  function getReach() {
+    const minWidth = 50;
+    return Math.floor(daysRefDiv.current?.clientWidth / (minWidth * 2));
+  }
+  function adaptWidth() {
+    setReach(getReach());
+  }
+  useEffect(() => adaptWidth);
   useEffect(() => {
     setSlidedTime(add_minutes(time, count));
   }, [count, time]);
