@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import {
   HandleChangeOrder,
   HandleDelete,
@@ -37,16 +37,26 @@ const Sliders: React.FC<IProps> = ({
   const add_minutes = function (dt: Date, minutes: number) {
     return new Date(dt.getTime() + minutes * 60000);
   };
-
-  useEffect(() => {
-    const minWidth = 70;
-    let r = Math.floor(slidersRefDiv.current.clientWidth / (minWidth * 2));
+  window.addEventListener("resize", adaptWidth);
+  function adaptWidth() {
+    const minWidth = 40;
+    let r = Math.floor(daysRefDiv.current?.clientWidth / (minWidth * 2));
     console.log("🚀 ~ file: Sliders.tsx ~ line 44 ~ useEffect ~ r", r);
-    if (r > 12) {
-      r = 12;
-    }
+    // if (r > 12) {
+    //   r = 12;
+    // }
     setReach(r);
-  }, [slidersRefDiv.current?.clientWidth]);
+  }
+  // console.log(daysRefDiv.current?.clientWidth);
+  // useLayoutEffect(() => {
+  //   const minWidth = 50;
+  //   let r = Math.floor(daysRefDiv.current.clientWidth / (minWidth * 2));
+  //   console.log("🚀 ~ file: Sliders.tsx ~ line 44 ~ useEffect ~ r", r);
+  //   if (r > 12) {
+  //     r = 12;
+  //   }
+  //   setReach(r);
+  // }, [daysRefDiv.current?.clientWidth]); // try another way to know the width of this stuffffffff
 
   useEffect(() => {
     setSlidedTime(add_minutes(time, count));
@@ -101,9 +111,9 @@ const Sliders: React.FC<IProps> = ({
           return (
             <Day
               key={`Day${index}`}
+              reach={reach}
               time={slidedTime}
               timeZone={location.value}
-              reach={reach}
               colorName={location.color}
             />
           );
