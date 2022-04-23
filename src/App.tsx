@@ -1,9 +1,13 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import AddTimeZoneButton from "./components/AddTimeZone/AddTimeZoneButton";
+import Footer from "./components/Footer/Footer";
 import Save from "./components/Save/Save";
 import Sliders from "./components/Sliders/Sliders";
 import { ColorName } from "./data/colors";
+import { getCookie } from "./utils/cookies";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import About from "./components/About/About";
 
 export interface Location {
   value: string;
@@ -70,45 +74,41 @@ export default function App() {
   }, []);
 
   return (
-    <div className="app">
+    <Router>
       <h1>TimeScrolls</h1>
-      <div className="reset-btn-wrapper">
-        {count !== 0 && (
-          <button
-            className="reset-btn"
-            onClick={handleReset}
-            disabled={count === 0}
-          >
-            Back to the present
-          </button>
-        )}
-      </div>
+      <Routes>
+        <Route path="/about" element={<About />}></Route>
+        <Route
+          path="/"
+          element={
+            <div className="app">
+              <div className="reset-btn-wrapper">
+                {count !== 0 && (
+                  <button
+                    className="reset-btn"
+                    onClick={handleReset}
+                    disabled={count === 0}
+                  >
+                    Back to the present
+                  </button>
+                )}
+              </div>
 
-      <Sliders
-        locations={locations}
-        time={time}
-        count={count}
-        handleDelete={handleDelete}
-        handleSlide={handleSlide}
-        handleChangeOrder={handleChangeOrder}
-      />
-      <Save locations={locations} />
-      <AddTimeZoneButton addTimeZone={addTimeZone} />
-    </div>
+              <Sliders
+                locations={locations}
+                time={time}
+                count={count}
+                handleDelete={handleDelete}
+                handleSlide={handleSlide}
+                handleChangeOrder={handleChangeOrder}
+              />
+              <Save locations={locations} />
+              <AddTimeZoneButton addTimeZone={addTimeZone} />
+              <Footer />
+            </div>
+          }
+        ></Route>
+      </Routes>
+    </Router>
   );
-}
-
-function getCookie(cname: string) {
-  let name = cname + "=";
-  let ca = document.cookie.split(";");
-  for (const element of ca) {
-    let c = element;
-    while (c.charAt(0) === " ") {
-      c = c.substring(1);
-    }
-    if (c.indexOf(name) === 0) {
-      return c.substring(name.length, c.length);
-    }
-  }
-  return "";
 }
