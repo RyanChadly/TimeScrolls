@@ -26,9 +26,7 @@ h1 {
   height: 5%;
   text-align: center;
   font-size: 36px;
-  background: -webkit-linear-gradient(#034063, #0693e3);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #034063;
   font-family: "Source Sans Pro", sans-serif;
   margin: 0px;
 }
