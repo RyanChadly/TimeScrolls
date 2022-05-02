@@ -17,15 +17,20 @@
 .app {
   color: rgb(70, 70, 70);
   font-family: "Source Sans Pro", sans-serif;
+  height: calc(100% - 100px);
+  padding: 10px;
 }
 
 h1 {
+  min-height: 50px;
+  height: 5%;
   text-align: center;
   font-size: 36px;
   background: -webkit-linear-gradient(#034063, #0693e3);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-family: "Source Sans Pro", sans-serif;
+  margin: 0px;
 }
 
 .reset-btn:hover {

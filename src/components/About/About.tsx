@@ -3,12 +3,8 @@ import "./About.css";
 const About = () => {
   return (
     <div className="about">
-      <p>
-        Author:
-        <a href="https://github.com/RyanChadly"> Ryan Chadly</a>
-      </p>
-      <p>I thought someone else might find it useful.</p>
-      <p>This is still in progress. I am planning to add:</p>
+      <a href="https://github.com/RyanChadly">Author</a>
+      <p>Roadmap:</p>
       <ul>
         <li>Better styling for the timezone editor.</li>
         <li>The option to toggle the highlighted hours.</li>

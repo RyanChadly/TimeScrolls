@@ -104,11 +104,11 @@ export default function App() {
               />
               <Save locations={locations} />
               <AddTimeZoneButton addTimeZone={addTimeZone} />
-              <Footer />
             </div>
           }
         ></Route>
       </Routes>
+      <Footer />
     </Router>
   );
 }
