@@ -7,7 +7,7 @@
   flex-basis: 15%;
   margin: 10px 10px 0px 0px;
   height: 100px;
-  font-family: "Source Sans Pro", sans-serif;
+  /* font-family: "Source Sans Pro", sans-serif; */
 }
 
 .lbl-actions-grabber {
@@ -24,7 +24,7 @@
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 .lbl-info-time {
   font-size: 30px;
