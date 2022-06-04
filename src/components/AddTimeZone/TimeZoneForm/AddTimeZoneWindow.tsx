@@ -59,27 +59,30 @@ const AddTimeZoneWindow: React.FC<AddTimeZoneWindowProps> = ({
 
   return (
     <div className="form-wrapper" onClick={handleClick}>
-      <form className="add-time-zone-form" onSubmit={handleSubmit}>
-        <input
-          className="name-input add-time-zone-form-control"
-          type="text"
-          value={name}
-          placeholder="Name (Optional)"
-          onChange={handleNameChange}
-        />
-        <SearchBar
-          data={timezones}
-          placeholder="Select a timezone"
-          handleSearchResult={handleSearchResult}
-        />
-        <ColorSelector handleChange={handleColorChange} />
-        <input
-          className="submit-btn add-time-zone-form-control"
-          type="submit"
-          value="Add"
-          disabled={!searchResult.value}
-        />
-      </form>
+      <div className="add-time-zone-window">
+        <span className="add-time-zone-title">Add a new time zone.</span>
+        <form className="add-time-zone-form" onSubmit={handleSubmit}>
+          <input
+            className="name-input add-time-zone-form-control"
+            type="text"
+            value={name}
+            placeholder="Name (Optional)"
+            onChange={handleNameChange}
+          />
+          <SearchBar
+            data={timezones}
+            placeholder="Select a timezone"
+            handleSearchResult={handleSearchResult}
+          />
+          <ColorSelector handleChange={handleColorChange} />
+          <input
+            className="submit-btn add-time-zone-form-control"
+            type="submit"
+            value="Add"
+            disabled={!searchResult.value}
+          />
+        </form>
+      </div>
     </div>
   );
 };

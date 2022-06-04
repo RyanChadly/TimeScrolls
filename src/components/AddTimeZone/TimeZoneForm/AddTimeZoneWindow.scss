@@ -8,37 +8,54 @@
   justify-content: center;
   flex-direction: column;
   z-index: 2;
-}
-.add-time-zone-form {
-  align-self: center;
-  display: flex;
-  flex-direction: column;
-  width: 300px;
 
-  justify-content: space-around;
-  box-shadow: #00000059 0px 5px 15px;
-  padding: 40px;
-  background-color: rgba(255, 255, 255);
-  border-radius: 5px;
-}
+  .add-time-zone-window {
+    display: grid;
+    grid-template-rows: 30px 1fr;
+    grid-template-areas:
+      "header"
+      "content";
+    align-self: center;
+    width: 380px;
+    box-shadow: #00000059 0px 5px 15px;
+    background-color: rgba(255, 255, 255);
+    border-radius: 20px;
+    .add-time-zone-title {
+      padding-left: 40px;
+      font-size: large;
+      padding-top: 7px;
+      border-radius: 20px 20px 0 0;
+      grid-area: header;
+      color: white;
+      background-color: #034063;
+    }
+    .add-time-zone-form {
+      grid-area: content;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      padding: 20px 40px 40px 40px;
 
-input[type="text" i] {
-  padding: 1px 10px;
-}
+      input[type="text" i] {
+        padding: 1px 10px;
+      }
 
-.add-time-zone-form-control {
-  border-width: 0.1px;
-  border-radius: 5px;
-  height: 20px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
+      .add-time-zone-form-control {
+        border-width: 0.1px;
+        border-radius: 5px;
+        height: 20px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
 
-.submit-btn {
-  margin-top: 30px;
-  border-width: 0.1px;
-  border-radius: 5px;
-  height: 20px;
-  align-self: center;
-  width: 50px;
+      .submit-btn {
+        margin-top: 30px;
+        border-width: 0.1px;
+        border-radius: 5px;
+        height: 20px;
+        align-self: center;
+        width: 50px;
+      }
+    }
+  }
 }

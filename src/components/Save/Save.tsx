@@ -17,7 +17,7 @@ const Save: React.FC<SaveProps> = ({ locations }) => {
 
   useEffect(() => {
     const cachedLocation = getCookie("locations");
-    if (cachedLocation !== "") {
+    if (cachedLocation) {
       setVisible(!isEqual(locations, JSON.parse(cachedLocation)));
     } else {
       if (originalLocations === locations) {
