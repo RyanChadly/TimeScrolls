@@ -4,15 +4,15 @@
   justify-content: space-between;
   align-items: center;
 }
-.color {
-  height: 25px;
-  width: 25px;
-  border-radius: 10%;
+.color-wrapper {
+  padding: 2px;
+  border-radius: 100%;
+  &.selected {
+    border: 2px solid;
+  }
 }
-
-.color-selected {
-  border: rgb(113, 97, 255) 2px solid;
-  height: 25px;
-  width: 25px;
-  border-radius: 10%;
+.color {
+  height: 20px;
+  width: 20px;
+  border-radius: 100%;
 }

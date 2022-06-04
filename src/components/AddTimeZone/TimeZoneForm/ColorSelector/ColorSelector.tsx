@@ -18,11 +18,18 @@ const ColorSelector: React.FC<ColorSelectorProps> = ({ handleChange }) => {
     <div className={"color-selector"}>
       {colors.map((color) => (
         <div
-          style={{ backgroundColor: color.base }}
-          className={`color${selectedColor === color.name ? "-selected" : ""}`}
-          key={color.name}
-          onClick={() => handleClick(color.name)}
-        ></div>
+          className={`color-wrapper${
+            selectedColor === color.name ? " selected" : ""
+          }`}
+          style={{ borderColor: color.base }}
+        >
+          <div
+            style={{ backgroundColor: color.base }}
+            className="color"
+            key={color.name}
+            onClick={() => handleClick(color.name)}
+          ></div>
+        </div>
       ))}
     </div>
   );
