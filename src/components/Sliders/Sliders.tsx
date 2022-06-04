@@ -7,7 +7,7 @@ import {
 } from "../../App";
 import Day from "./Day";
 import SliderLabel from "../SlidersLabels/SliderLabel";
-import "./Sliders.css";
+import "./Sliders.scss";
 
 interface IProps {
   locations: Location[];

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Location } from "../../App";
-import "./Save.css";
+import "./Save.scss";
 import { isEqual } from "lodash";
 import { getCookie, setCookie } from "../../utils/cookies";
 interface SaveProps {

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "./App.css";
+import "./App.scss";
 import AddTimeZoneButton from "./components/AddTimeZone/AddTimeZoneButton";
 import Footer from "./components/Footer/Footer";
 import Save from "./components/Save/Save";

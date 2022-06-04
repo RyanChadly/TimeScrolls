@@ -1,6 +1,6 @@
 import Hour from "./Hour";
 import range from "lodash/range";
-import "./Day.css";
+import "./Day.scss";
 import { AiFillCaretDown } from "react-icons/ai";
 import { ColorName } from "../../data/colors";
 

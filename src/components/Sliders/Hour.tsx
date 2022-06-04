@@ -1,6 +1,6 @@
 import { range } from "lodash";
 import { ColorName, colors } from "../../data/colors";
-import "./Hour.css";
+import "./Hour.scss";
 interface Props {
   hour: number;
   minutes: number;

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Timezone, timezones } from "../../../data/timezones";
 import SearchBar from "./SearchBar/SearchBar";
-import "./AddTimeZoneWindow.css";
+import "./AddTimeZoneWindow.scss";
 import ColorSelector from "./ColorSelector/ColorSelector";
 import { AddTimeZone } from "../../../App";
 import { HandleClose } from "../AddTimeZoneButton";

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "./About.css";
+import "./About.scss";
 const About = () => {
   return (
     <div className="about">

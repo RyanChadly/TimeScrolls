@@ -3,7 +3,7 @@ import { MdDragIndicator } from "react-icons/md";
 import { TiDeleteOutline } from "react-icons/ti";
 import { HandleChangeOrder, HandleDelete, Location } from "../../App";
 import { colors } from "../../data/colors";
-import "./SliderLabel.css";
+import "./SliderLabel.scss";
 
 interface SliderLabelProp {
   location: Location;

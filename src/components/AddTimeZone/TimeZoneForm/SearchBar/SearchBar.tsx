@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./SearchBar.css";
+import "./SearchBar.scss";
 import { AiOutlineSearch, AiOutlineClose } from "react-icons/ai";
 import { Timezone } from "../../../../data/timezones";
 
