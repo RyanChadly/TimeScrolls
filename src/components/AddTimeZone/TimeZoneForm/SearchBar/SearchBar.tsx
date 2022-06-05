@@ -66,7 +66,7 @@ const SearchBar: React.FC<Props> = ({
           )}
         </div>
       </div>
-      {openDataResult && (
+      {
         <div
           className="dataResult"
           style={{
@@ -85,7 +85,7 @@ const SearchBar: React.FC<Props> = ({
             );
           })}
         </div>
-      )}
+      }
     </div>
   );
 };
