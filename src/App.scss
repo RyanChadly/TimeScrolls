@@ -1,16 +1,24 @@
 .app {
+  height: 100vh;
   color: rgb(70, 70, 70);
   font-family: "Source Sans Pro", sans-serif;
-  height: calc(100% - 100px);
   padding: 10px;
+  display: grid;
+  grid-template-rows: 50px 20px 1fr;
+  grid-template-columns: 30px 200px 1fr;
+  grid-template-areas:
+    "header header header"
+    "save reset ."
+    "content content content";
 }
 
-h1 {
-  min-height: 50px;
-  height: 5%;
+.header {
+  grid-area: header;
   text-align: center;
   font-size: 36px;
   color: #034063;
   font-family: "Source Sans Pro", sans-serif;
-  margin: 0px;
+}
+.content {
+  grid-area: content;
 }

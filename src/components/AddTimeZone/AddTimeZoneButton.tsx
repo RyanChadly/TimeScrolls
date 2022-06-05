@@ -19,9 +19,9 @@ const AddTimeZoneButton: React.FC<AddTimeZoneButtonProps> = ({
     setShow(false);
   };
   return (
-    <div className="time-zone-wraper">
+    <>
       {!show && (
-        <div className="btn-wrapper" onClick={handleClick}>
+        <div className="btn-add-wrapper" onClick={handleClick}>
           <AiOutlinePlus className="button-plus" />
         </div>
       )}
@@ -32,7 +32,7 @@ const AddTimeZoneButton: React.FC<AddTimeZoneButtonProps> = ({
           handleClose={handleClose}
         />
       )}
-    </div>
+    </>
   );
 };
 export default AddTimeZoneButton;

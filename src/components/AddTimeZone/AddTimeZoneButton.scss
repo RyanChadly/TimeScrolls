@@ -1,6 +1,6 @@
-.btn-wrapper {
-  margin: auto;
-  margin-top: 5px;
+.btn-add-wrapper {
+  justify-self: center;
+  grid-area: add;
   background-color: #0693e3;
   width: 40px;
   height: 40px;
@@ -10,11 +10,9 @@
   border-radius: 100%;
   cursor: pointer;
   user-select: none;
-  -webkit-transition: background-color 200ms linear;
-  -ms-transition: background-color 200ms linear;
   transition: background-color 200ms linear;
 }
-.btn-wrapper:hover {
+.btn-add-wrapper:hover {
   background-color: #7bdcb5;
 }
 

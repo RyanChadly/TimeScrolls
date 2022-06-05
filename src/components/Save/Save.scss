@@ -1,10 +1,9 @@
 .save {
+  grid-area: save;
   background-color: #0693e3;
   border-style: none;
   border-radius: 5px;
   color: white;
-  -webkit-transition: background-color 200ms linear;
-  -ms-transition: background-color 200ms linear;
   transition: background-color 200ms linear;
   text-align: center;
   width: 50px;

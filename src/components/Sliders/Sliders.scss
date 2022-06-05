@@ -1,4 +1,7 @@
 .sliders {
+  grid-area: slider;
+  overflow-y: hidden;
+  overflow-y: scroll;
   display: flex;
   flex-wrap: nowrap;
   flex-direction: row;

@@ -73,18 +73,20 @@ export default function App() {
 
   return (
     <div className="app">
-      <h1>TimeScrolls</h1>
-      <ResetButton disabled={count === 0} handleReset={handleReset} />
-      <Sliders
-        locations={locations}
-        time={time}
-        count={count}
-        handleDelete={handleDelete}
-        handleSlide={handleSlide}
-        handleChangeOrder={handleChangeOrder}
-      />
+      <div className="header">TimeScrolls</div>
       <Save locations={locations} />
-      <AddTimeZoneButton addTimeZone={addTimeZone} />
+      <ResetButton disabled={count === 0} handleReset={handleReset} />
+      <div className="content">
+        <Sliders
+          locations={locations}
+          time={time}
+          count={count}
+          handleDelete={handleDelete}
+          handleSlide={handleSlide}
+          handleChangeOrder={handleChangeOrder}
+        />
+        <AddTimeZoneButton addTimeZone={addTimeZone} />
+      </div>
     </div>
   );
 }
