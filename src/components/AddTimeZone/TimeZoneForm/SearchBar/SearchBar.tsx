@@ -23,7 +23,6 @@ const SearchBar: React.FC<Props> = ({
     const newFilter = data.filter((value) => {
       return value.value?.toLowerCase().includes(searchWord.toLowerCase());
     });
-
     if (searchWord === "") {
       setFilteredData([]);
       setOpenDataResult(false);
@@ -39,6 +38,7 @@ const SearchBar: React.FC<Props> = ({
     handleSearchResult({});
     setOpenDataResult(false);
   };
+
   const handleClick = (key: number) => {
     if (filteredData[key].value !== undefined) {
       setWordEntered(filteredData[key].value as string);
@@ -46,6 +46,9 @@ const SearchBar: React.FC<Props> = ({
     setOpenDataResult(false);
     handleSearchResult(filteredData[key]);
   };
+
+  const resultHeight = filteredData.length < 6 ? filteredData.length * 40 : 200;
+
   return (
     <div className="search">
       <div className="searchInputs">
@@ -64,7 +67,12 @@ const SearchBar: React.FC<Props> = ({
         </div>
       </div>
       {openDataResult && (
-        <div className="dataResult">
+        <div
+          className="dataResult"
+          style={{
+            height: resultHeight,
+          }}
+        >
           {filteredData.map((value, key) => {
             return (
               <div
