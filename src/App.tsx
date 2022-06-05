@@ -1,13 +1,10 @@
 import { useEffect, useState } from "react";
 import "./App.scss";
 import AddTimeZoneButton from "./components/AddTimeZone/AddTimeZoneButton";
-import Footer from "./components/Footer/Footer";
 import Save from "./components/Save/Save";
 import Sliders from "./components/Sliders/Sliders";
 import { ColorName } from "./data/colors";
 import { getCookie } from "./utils/cookies";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import About from "./components/About/About";
 import ResetButton from "./components/ResetButton/ResetButton";
 
 export interface Location {
