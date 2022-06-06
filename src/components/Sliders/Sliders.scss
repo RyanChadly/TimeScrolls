@@ -1,16 +1,16 @@
 .sliders {
   grid-area: slider;
   overflow-y: hidden;
-  overflow-y: scroll;
+  overflow-y: auto;
   display: flex;
   flex-wrap: nowrap;
   flex-direction: row;
+  max-height: calc(100vh - 200px);
 }
 .labels {
   flex-basis: 15%;
 }
 .days {
-  /* display: flex; */
   flex-wrap: nowrap;
   flex-basis: 85%;
 }
