@@ -15,7 +15,6 @@ const SearchBar: React.FC<Props> = ({
 }) => {
   const [filteredData, setFilteredData] = useState<Timezone[]>([]);
   const [wordEntered, setWordEntered] = useState("");
-  const [openDataResult, setOpenDataResult] = useState(false);
 
   const handleFilter = (event: { target: { value: any } }) => {
     const searchWord = event.target.value;
@@ -25,10 +24,8 @@ const SearchBar: React.FC<Props> = ({
     });
     if (searchWord === "") {
       setFilteredData([]);
-      setOpenDataResult(false);
     } else {
       setFilteredData(newFilter);
-      setOpenDataResult(true);
     }
   };
 
@@ -36,14 +33,13 @@ const SearchBar: React.FC<Props> = ({
     setFilteredData([]);
     setWordEntered("");
     handleSearchResult({});
-    setOpenDataResult(false);
   };
 
   const handleClick = (key: number) => {
     if (filteredData[key].value !== undefined) {
       setWordEntered(filteredData[key].value as string);
     }
-    setOpenDataResult(false);
+    setFilteredData([]);
     handleSearchResult(filteredData[key]);
   };
 
