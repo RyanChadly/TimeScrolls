@@ -6,6 +6,7 @@ import ColorSelector from "./ColorSelector/ColorSelector";
 import { AddTimeZone } from "../../../App";
 import { HandleClose } from "../AddTimeZoneButton";
 import { ColorName, defaultColorName } from "../../../data/colors";
+import { IoCloseOutline } from "react-icons/io5";
 
 interface AddTimeZoneWindowProps {
   addTimeZone: AddTimeZone;
@@ -61,6 +62,9 @@ const AddTimeZoneWindow: React.FC<AddTimeZoneWindowProps> = ({
     <div className="form-wrapper" onClick={handleClick}>
       <div className="add-time-zone-window">
         <span className="add-time-zone-title">Add a new timezone</span>
+        <span className="close">
+          <IoCloseOutline className="delete-icon" onClick={handleClose} />
+        </span>
         <form className="add-time-zone-form" onSubmit={handleSubmit}>
           <SearchBar
             data={timezones}

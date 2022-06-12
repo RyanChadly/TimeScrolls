@@ -11,21 +11,34 @@
 
   .add-time-zone-window {
     display: grid;
+    grid-template-columns: 1fr 40px;
     grid-template-rows: 35px 1fr;
     grid-template-areas:
-      "header"
-      "content";
+      "header close"
+      "content content";
     align-self: center;
     width: 380px;
     box-shadow: #00000059 0px 5px 15px;
     background-color: rgba(255, 255, 255);
     border-radius: 20px;
-
+    .close {
+      border-radius: 0px 20px 0 0;
+      background-color: #034063;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      .delete-icon {
+        color: white;
+        align-self: center;
+        font-size: large;
+        cursor: pointer;
+      }
+    }
     .add-time-zone-title {
       padding-left: 40px;
       font-size: large;
       padding-top: 7px;
-      border-radius: 20px 20px 0 0;
+      border-radius: 20px 0px 0 0;
       grid-area: header;
       color: white;
       background-color: #034063;
