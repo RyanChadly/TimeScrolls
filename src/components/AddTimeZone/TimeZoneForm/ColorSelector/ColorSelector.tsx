@@ -18,6 +18,7 @@ const ColorSelector: React.FC<ColorSelectorProps> = ({ handleChange }) => {
     <div className={"color-selector"}>
       {colors.map((color) => (
         <div
+          key={color.name}
           className={`color-wrapper${
             selectedColor === color.name ? " selected" : ""
           }`}
