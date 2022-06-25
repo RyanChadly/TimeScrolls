@@ -4,7 +4,7 @@ import AddTimeZoneButton from "./components/AddTimeZone/AddTimeZoneButton";
 import Save from "./components/Save/Save";
 import Sliders from "./components/Sliders/Sliders";
 import { ColorName } from "./data/colors";
-import { getCookie } from "./utils/cookies";
+import { useLocalStorageState } from "./utils/local-storage";
 import ResetButton from "./components/ResetButton/ResetButton";
 
 export interface Location {
@@ -19,7 +19,7 @@ export type AddTimeZone = (location: Location) => void;
 
 export default function App() {
   const [count, setCount] = useState(0);
-  const [locations, setLocations] = useState<Location[]>([
+  const [locations, setLocations] = useLocalStorageState("locations", [
     {
       value: "America/New_York",
       name: "New-York",
@@ -44,7 +44,9 @@ export default function App() {
   };
 
   const handleDelete = (index: number) => {
-    setLocations(locations.filter((_location, i) => i !== index));
+    setLocations(
+      locations.filter((_location: Location, i: number) => i !== index)
+    );
   };
 
   const handleReset = () => {
@@ -63,13 +65,6 @@ export default function App() {
       }
     }, 1000);
   }, [time, count]);
-
-  useEffect(() => {
-    const cachedLocation = getCookie("locations");
-    if (cachedLocation !== "") {
-      setLocations(JSON.parse(cachedLocation));
-    }
-  }, []);
 
   return (
     <div className="app">

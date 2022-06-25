@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Location } from "../../App";
 import "./Save.scss";
 import { isEqual } from "lodash";
-import { getCookie, setCookie } from "../../utils/cookies";
+import { useLocalStorageState } from "../../utils/local-storage";
 interface SaveProps {
   locations: Location[];
 }
@@ -10,23 +10,19 @@ interface SaveProps {
 const Save: React.FC<SaveProps> = ({ locations }) => {
   const [visible, setVisible] = useState(false);
   const [originalLocations] = useState(locations);
+  const [storedLocations, setStoredLocations] =
+    useLocalStorageState("locations");
+
   const handleSave = () => {
-    setCookie("locations", JSON.stringify(locations), 365);
+    setStoredLocations(locations);
     setVisible(false);
   };
 
   useEffect(() => {
-    const cachedLocation = getCookie("locations");
-    if (cachedLocation) {
-      setVisible(!isEqual(locations, JSON.parse(cachedLocation)));
-    } else {
-      if (originalLocations === locations) {
-        setVisible(false);
-      } else {
-        setVisible(true);
-      }
-    }
-  }, [locations, originalLocations]);
+    storedLocations
+      ? setVisible(!isEqual(locations, storedLocations))
+      : setVisible(originalLocations !== locations);
+  }, [locations, originalLocations, storedLocations]);
 
   return (
     <div className="save-wrapper">
