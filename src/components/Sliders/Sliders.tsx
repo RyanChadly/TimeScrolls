@@ -8,6 +8,8 @@ import {
 import Day from "./Day";
 import SliderLabel from "../SlidersLabels/SliderLabel";
 import "./Sliders.scss";
+import { ErrorBoundary } from "react-error-boundary";
+import ErrorFallback from "../ErrorFallback/ErrorFallback";
 
 interface IProps {
   locations: Location[];
@@ -76,14 +78,16 @@ const Sliders: React.FC<IProps> = ({
       <div className="labels" ref={labelsRefDiv}>
         {locations.map((location, index) => {
           return (
-            <SliderLabel
-              key={index}
-              location={location}
-              slidedTime={slidedTime}
-              index={index}
-              handleDelete={handleDelete}
-              handleChangeOrder={handleChangeOrder}
-            />
+            <ErrorBoundary key={index} FallbackComponent={ErrorFallback}>
+              <SliderLabel
+                key={index}
+                location={location}
+                slidedTime={slidedTime}
+                index={index}
+                handleDelete={handleDelete}
+                handleChangeOrder={handleChangeOrder}
+              />
+            </ErrorBoundary>
           );
         })}
       </div>
@@ -98,13 +102,15 @@ const Sliders: React.FC<IProps> = ({
       >
         {locations.map((location, index) => {
           return (
-            <Day
-              key={`Day${index}`}
-              reach={reach}
-              time={slidedTime}
-              timeZone={location.value}
-              colorName={location.color}
-            />
+            <ErrorBoundary key={index} FallbackComponent={ErrorFallback}>
+              <Day
+                key={`Day${index}`}
+                reach={reach}
+                time={slidedTime}
+                timeZone={location.value}
+                colorName={location.color}
+              />
+            </ErrorBoundary>
           );
         })}
       </div>
