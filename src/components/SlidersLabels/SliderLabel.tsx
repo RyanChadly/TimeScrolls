@@ -46,15 +46,6 @@ const SliderLabel: React.FC<SliderLabelProp> = ({
     const data = e.dataTransfer.getData("text");
     handleChangeOrder(index, parseInt(data));
   };
-  const handleMouseEnter = () => {
-    setIsHovered(true);
-  };
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-  };
-  const setGrabbable = (b: boolean) => {
-    setIsGrabbable(b);
-  };
 
   const getBackgroundStyle = () => {
     return `linear-gradient(45deg, ${
@@ -86,8 +77,8 @@ const SliderLabel: React.FC<SliderLabelProp> = ({
     <div
       className="lbl-label"
       draggable={isGrabbable ? "true" : "false"}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
       onDragLeave={handleDragLeave}
       onDragOver={handleDragOver}
       onDrop={handleDrop}
@@ -99,8 +90,8 @@ const SliderLabel: React.FC<SliderLabelProp> = ({
         <MdDragIndicator
           opacity={isHovered ? 1 : 0}
           cursor={"move"}
-          onMouseEnter={() => setGrabbable(true)}
-          onMouseLeave={() => setGrabbable(false)}
+          onMouseEnter={() => setIsGrabbable(true)}
+          onMouseLeave={() => setIsGrabbable(false)}
         />
       </div>
 
