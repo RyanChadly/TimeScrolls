@@ -78,9 +78,19 @@ const Sliders: React.FC<IProps> = ({
       <div className="labels" ref={labelsRefDiv}>
         {locations.map((location, index) => {
           return (
-            <ErrorBoundary key={index} FallbackComponent={ErrorFallback}>
+            <ErrorBoundary
+              key={`${location.value}${index}`}
+              FallbackComponent={() => (
+                <button
+                  style={{ height: 110 }}
+                  onClick={() => handleDelete(index)}
+                >
+                  Delete
+                </button>
+              )}
+            >
               <SliderLabel
-                key={index}
+                key={`${location.value}${index}`}
                 location={location}
                 slidedTime={slidedTime}
                 index={index}
@@ -102,9 +112,12 @@ const Sliders: React.FC<IProps> = ({
       >
         {locations.map((location, index) => {
           return (
-            <ErrorBoundary key={index} FallbackComponent={ErrorFallback}>
+            <ErrorBoundary
+              key={`${location.value}${index}`}
+              FallbackComponent={ErrorFallback}
+            >
               <Day
-                key={`Day${index}`}
+                key={`${location.value}${index}`}
                 reach={reach}
                 time={slidedTime}
                 timeZone={location.value}
