@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.scss";
 import AddTimeZoneButton from "./components/AddTimeZone/AddTimeZoneButton";
-import Save from "./components/Save/Save";
 import Sliders from "./components/Sliders/Sliders";
 import { ColorName } from "./data/colors";
 import { useLocalStorageState } from "./utils/local-storage";
@@ -69,7 +68,6 @@ export default function App() {
   return (
     <div className="app">
       <div className="header">TimeScrolls</div>
-      <Save locations={locations} />
       <ResetButton disabled={count === 0} handleReset={handleReset} />
       <div className="content">
         <Sliders

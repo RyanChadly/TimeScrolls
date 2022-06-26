@@ -6,7 +6,7 @@ import { useLocalStorageState } from "../../utils/local-storage";
 interface SaveProps {
   locations: Location[];
 }
-
+// This component is no longer in use. Everything is saved dynamically in localStorage.
 const Save: React.FC<SaveProps> = ({ locations }) => {
   const [visible, setVisible] = useState(false);
   const [originalLocations] = useState(locations);

@@ -5,11 +5,10 @@
   padding: 10px;
   display: grid;
   grid-template-rows: 50px 20px 1fr;
-  grid-template-columns: 30px 200px 1fr;
   grid-template-areas:
-    "header header header"
-    "save reset ."
-    "content content content";
+    "header "
+    "reset "
+    "content";
 }
 
 .header {
