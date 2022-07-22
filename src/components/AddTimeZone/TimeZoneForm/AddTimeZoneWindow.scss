@@ -29,7 +29,6 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      cursor: grab;
       .delete-icon {
         color: white;
         align-self: center;
@@ -39,7 +38,6 @@
     }
     .add-time-zone-title {
       user-select: none;
-      cursor: grab;
       padding-left: 40px;
       font-size: large;
       padding-top: 7px;
