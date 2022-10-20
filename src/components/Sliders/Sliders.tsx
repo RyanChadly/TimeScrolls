@@ -42,13 +42,16 @@ const Sliders: React.FC<IProps> = ({
 
   window.addEventListener("resize", adaptWidth);
   function getReach() {
-    const minWidth = 50;
-    return Math.floor(daysRefDiv.current?.clientWidth / (minWidth * 2));
+    return Math.floor(daysRefDiv.current?.clientWidth / (50 * 2));
   }
+
   function adaptWidth() {
     setReach(getReach());
   }
-  useEffect(() => adaptWidth);
+  useEffect(() => {
+    setReach(getReach());
+  }, []);
+
   useEffect(() => {
     setSlidedTime(add_minutes(time, count));
   }, [count, time]);
@@ -67,10 +70,6 @@ const Sliders: React.FC<IProps> = ({
       const deltaMinutes = (deltaX * maxTime) / maxWidth;
       handleSlide(-deltaMinutes);
     }
-  };
-
-  const handleMouseUp = () => {
-    setMouseDown(false);
   };
 
   return (
@@ -105,8 +104,8 @@ const Sliders: React.FC<IProps> = ({
         className="days"
         onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}
-        onMouseUp={handleMouseUp}
-        onMouseLeave={handleMouseUp}
+        onMouseUp={() => setMouseDown(false)}
+        onMouseLeave={() => setMouseDown(false)}
         ref={daysRefDiv}
         style={{ cursor: mouseDown ? "grabbing" : "grab", userSelect: "none" }}
       >
