@@ -100,7 +100,6 @@ const SliderLabel: React.FC<SliderLabelProp> = ({
         <div className="lbl-info-time">
           {slidedTime.toLocaleTimeString("en-GB", {
             timeZone: location.value,
-            //   timeZoneName: "short",
           })}
         </div>
         <div className="lbl-info-date">
