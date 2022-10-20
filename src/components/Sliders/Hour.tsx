@@ -12,7 +12,7 @@ const Hour: React.FC<Props> = ({ hour, minutes, current, colorName }) => {
   const color = colors.find((c) => c.name === colorName);
   const day = range(9, 17);
 
-  const getStyle = day.includes(hour)
+  const style = day.includes(hour)
     ? {
         color: color?.dark,
         background: `linear-gradient(170deg, white 0%, ${color?.lighter}55 100%)`,
@@ -25,7 +25,7 @@ const Hour: React.FC<Props> = ({ hour, minutes, current, colorName }) => {
   return (
     <span
       className={`hour  ${current ? "current" : ""} `}
-      style={{ ...getStyle, flex: minutes }}
+      style={{ ...style, flex: minutes }}
       id={`h${hour}`}
     >
       {hour}
