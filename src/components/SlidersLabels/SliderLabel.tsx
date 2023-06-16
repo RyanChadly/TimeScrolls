@@ -40,13 +40,13 @@ export const SliderLabel = ({
   ) => {
     e.preventDefault();
     if (eventType === "leave") {
-    setDragEntered(false);
+      setDragEntered(false);
     } else if (eventType === "over") {
-    setDragEntered(true);
+      setDragEntered(true);
     } else if (eventType === "drop") {
-    setDragEntered(false);
-    const data = e.dataTransfer.getData("text");
-    handleChangeOrder(index, parseInt(data));
+      setDragEntered(false);
+      const data = e.dataTransfer.getData("text");
+      handleChangeOrder(index, parseInt(data));
     }
   };
 
@@ -64,9 +64,9 @@ export const SliderLabel = ({
       };
     }
     if (dragEntered) {
+      const color = colors.find((color) => color.name === location.color);
       return {
-        backgroundColor: colors.find((color) => color.name === location.color)
-          ?.base,
+        backgroundColor: color?.base,
       };
     }
     return {
@@ -77,7 +77,7 @@ export const SliderLabel = ({
   return (
     <div
       className="lbl-label"
-      draggable={isGrabbable ? "true" : "false"}
+      draggable={`${isGrabbable}`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onDragLeave={(e) => handleDrag(e, "leave")}
@@ -123,5 +123,3 @@ export const SliderLabel = ({
     </div>
   );
 };
-
-export default SliderLabel;
