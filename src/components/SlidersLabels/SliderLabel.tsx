@@ -87,7 +87,7 @@ const SliderLabel: React.FC<SliderLabelProp> = ({
       <div className="lbl-actions-grabber">
         <MdDragIndicator
           opacity={isHovered ? 1 : 0}
-          cursor={"move"}
+          cursor="move"
           onMouseEnter={() => setIsGrabbable(true)}
           onMouseLeave={() => setIsGrabbable(false)}
         />
@@ -112,7 +112,7 @@ const SliderLabel: React.FC<SliderLabelProp> = ({
       </div>
       <div className="lbl-actions-delete">
         <TiDeleteOutline
-          cursor={"point"}
+          cursor="point"
           onClick={() => handleDelete(index)}
           opacity={isHovered ? 1 : 0}
         />
