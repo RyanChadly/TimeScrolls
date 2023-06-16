@@ -5,7 +5,7 @@ import { HandleChangeOrder, HandleDelete, Location } from "../../App";
 import { colors } from "../../data/colors";
 import "./SliderLabel.scss";
 
-interface SliderLabelProp {
+interface SliderLabelProps {
   location: Location;
   slidedTime: Date;
   index: number;
@@ -13,20 +13,22 @@ interface SliderLabelProp {
   handleChangeOrder: HandleChangeOrder;
 }
 
-const SliderLabel: React.FC<SliderLabelProp> = ({
+export const SliderLabel = ({
   location,
   slidedTime,
   index,
   handleDelete,
   handleChangeOrder,
-}) => {
+}: SliderLabelProps) => {
   const [isGrabbed, setIsGrabbed] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const [dragEntered, setDragEntered] = useState(false);
   const [isGrabbable, setIsGrabbable] = useState(false);
+
   const handleDragEnd = () => {
     setIsGrabbed(false);
   };
+
   const handleDragStart = (e: React.DragEvent<HTMLDivElement>) => {
     e.dataTransfer.setData("text", `${index}`);
     setIsGrabbed(true);
@@ -71,6 +73,7 @@ const SliderLabel: React.FC<SliderLabelProp> = ({
       background: getBackgroundStyle(),
     };
   };
+
   return (
     <div
       className="lbl-label"
