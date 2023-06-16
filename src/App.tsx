@@ -3,7 +3,7 @@ import "./App.scss";
 import AddTimeZoneButton from "./components/AddTimeZone/AddTimeZoneButton";
 import Sliders from "./components/Sliders/Sliders";
 import { ColorName } from "./data/colors";
-import { useLocalStorageState } from "./utils/local-storage";
+import { useLocalStorageState } from "./hooks/use-local-storage-state";
 import ResetButton from "./components/ResetButton/ResetButton";
 
 export interface Location {
