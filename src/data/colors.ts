@@ -9,6 +9,7 @@ export type ColorName =
   | "red"
   | "pink"
   | "purple";
+
 export interface Color {
   name: ColorName;
   base: string;
@@ -17,7 +18,9 @@ export interface Color {
   shade: string;
   mediumDark: string;
 }
+
 export const defaultColorName: ColorName = "blue";
+
 export const colors: Color[] = [
   {
     name: "orange",
