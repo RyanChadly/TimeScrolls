@@ -6,7 +6,7 @@ import {
   Location,
 } from "../../App";
 import Day from "./Day";
-import SliderLabel from "../SlidersLabels/SliderLabel";
+import { SliderLabel } from "../SlidersLabels/SliderLabel";
 import "./Sliders.scss";
 import { ErrorBoundary } from "react-error-boundary";
 import ErrorFallback from "../ErrorFallback/ErrorFallback";
