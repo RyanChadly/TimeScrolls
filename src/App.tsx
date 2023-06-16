@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import "./App.scss";
 import AddTimeZoneButton from "./components/AddTimeZone/AddTimeZoneButton";
 import Sliders from "./components/Sliders/Sliders";
@@ -30,40 +30,50 @@ export default function App() {
   ]);
   const [time, setTime] = useState(new Date(Date.now()));
 
-  const handleChangeOrder = (destination: number, origin: number) => {
-    const itemToMove = locations[origin];
-    let newArray = locations;
-    newArray.splice(origin, 1);
-    newArray.splice(destination, 0, itemToMove);
-    setLocations([...newArray]);
-  };
+  const handleChangeOrder = useCallback(
+    (destination: number, origin: number) => {
+      const itemToMove = locations[origin];
+      let newArray = [...locations];
+      newArray.splice(origin, 1);
+      newArray.splice(destination, 0, itemToMove);
+      setLocations([...newArray]);
+    },
+    [locations, setLocations]
+  );
 
-  const handleSlide = (value: number) => {
+  const handleSlide = useCallback((value: number) => {
     setCount((previous) => previous + value);
-  };
+  }, []);
 
-  const handleDelete = (index: number) => {
-    setLocations(
-      locations.filter((_location: Location, i: number) => i !== index)
-    );
-  };
+  const handleDelete = useCallback(
+    (index: number) => {
+      setLocations(
+        locations.filter((_location: Location, i: number) => i !== index)
+      );
+    },
+    [locations, setLocations]
+  );
 
-  const handleReset = () => {
+  const handleReset = useCallback(() => {
     setCount(0);
     setTime(new Date(Date.now()));
-  };
+  }, []);
 
-  const addTimeZone = (data: Location) => {
-    setLocations([...locations, data]);
-  };
+  const addTimeZone = useCallback(
+    (data: Location) => {
+      setLocations([...locations, data]);
+    },
+    [locations, setLocations]
+  );
 
   useEffect(() => {
-    setTimeout(() => {
+    const ticker = setInterval(() => {
       if (count === 0) {
         setTime(new Date(Date.now()));
       }
     }, 1000);
-  }, [time, count]);
+    return () => clearInterval(ticker);
+  }, [count]);
 
   return (
     <div className="app">
