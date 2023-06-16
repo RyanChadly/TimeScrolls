@@ -32,19 +32,20 @@ const SliderLabel: React.FC<SliderLabelProp> = ({
     setIsGrabbed(true);
   };
 
-  const handleDragLeave = (e: React.DragEvent<HTMLDivElement>) => {
+  const handleDrag = (
+    e: React.DragEvent<HTMLDivElement>,
+    eventType: string
+  ) => {
     e.preventDefault();
+    if (eventType === "leave") {
     setDragEntered(false);
-  };
-  const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
-    e.preventDefault();
+    } else if (eventType === "over") {
     setDragEntered(true);
-  };
-  const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
-    e.preventDefault();
+    } else if (eventType === "drop") {
     setDragEntered(false);
     const data = e.dataTransfer.getData("text");
     handleChangeOrder(index, parseInt(data));
+    }
   };
 
   const getBackgroundStyle = () => {
@@ -76,9 +77,9 @@ const SliderLabel: React.FC<SliderLabelProp> = ({
       draggable={isGrabbable ? "true" : "false"}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      onDragLeave={handleDragLeave}
-      onDragOver={handleDragOver}
-      onDrop={handleDrop}
+      onDragLeave={(e) => handleDrag(e, "leave")}
+      onDragOver={(e) => handleDrag(e, "over")}
+      onDrop={(e) => handleDrag(e, "drop")}
       style={getStyle()}
       onDragStart={handleDragStart}
       onDragEnd={handleDragEnd}
