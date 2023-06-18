@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./SearchBar.scss";
 import { AiOutlineSearch, AiOutlineClose } from "react-icons/ai";
-import { Timezone } from "../../../../data/timezones";
+import { Timezone } from "../../../data/timezones";
 
 interface Props {
   placeholder: string;

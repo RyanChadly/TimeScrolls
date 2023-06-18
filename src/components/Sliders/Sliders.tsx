@@ -5,12 +5,12 @@ import {
   HandleSlide,
   Location,
 } from "../../App";
-import Day from "./Day";
 import { SliderLabel } from "../SlidersLabels/SliderLabel";
 import "./Sliders.scss";
 import { ErrorBoundary } from "react-error-boundary";
 import ErrorFallback from "../ErrorFallback/ErrorFallback";
 import { ErrorFallbackLabel } from "../ErrorFallbackLabel/ErrorFallbackLabel";
+import Day from "../Day/Day";
 
 interface IProps {
   locations: Location[];

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ColorName, colors, defaultColorName } from "../../../../data/colors";
+import { ColorName, colors, defaultColorName } from "../../../data/colors";
 import "./ColorSelector.scss";
 
 type HandleChangeColor = (color: ColorName) => void;

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import AddTimeZoneWindow from "./TimeZoneForm/AddTimeZoneWindow";
+import AddTimeZoneWindow from "../TimeZoneForm/AddTimeZoneWindow";
 import "./AddTimeZoneButton.scss";
 import { AiOutlinePlus } from "react-icons/ai";
 import { AddTimeZone } from "../../App";
