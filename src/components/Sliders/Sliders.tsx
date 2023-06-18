@@ -10,6 +10,7 @@ import { SliderLabel } from "../SlidersLabels/SliderLabel";
 import "./Sliders.scss";
 import { ErrorBoundary } from "react-error-boundary";
 import ErrorFallback from "../ErrorFallback/ErrorFallback";
+import { ErrorFallbackLabel } from "../ErrorFallbackLabel/ErrorFallbackLabel";
 
 interface IProps {
   locations: Location[];
@@ -80,12 +81,7 @@ const Sliders: React.FC<IProps> = ({
             <ErrorBoundary
               key={`${location.value}${index}`}
               FallbackComponent={() => (
-                <button
-                  style={{ height: 110 }}
-                  onClick={() => handleDelete(index)}
-                >
-                  Delete
-                </button>
+                <ErrorFallbackLabel handleDelete={handleDelete} index={index} />
               )}
             >
               <SliderLabel
