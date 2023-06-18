@@ -1,4 +1,4 @@
-import Hour from "./Hour";
+import { Hour } from "./Hour";
 import range from "lodash/range";
 import "./Day.scss";
 import { AiFillCaretDown } from "react-icons/ai";
@@ -52,7 +52,6 @@ const Day: React.FC<Props> = ({ time, timeZone, reach, colorName }) => {
               key={index}
               hour={h}
               minutes={minutesProportion(index)}
-              current={h === hour}
               colorName={colorName}
             />
           );

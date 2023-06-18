@@ -1,15 +1,15 @@
 import { range } from "lodash";
-import { ColorName, colors } from "../../data/colors";
+import { ColorName, colorObject } from "../../data/colors";
 import "./Hour.scss";
-interface Props {
+
+interface HourProps {
   hour: number;
   minutes: number;
-  current: boolean;
   colorName: ColorName;
 }
 
-const Hour: React.FC<Props> = ({ hour, minutes, current, colorName }) => {
-  const color = colors.find((c) => c.name === colorName);
+export const Hour = ({ hour, minutes, colorName }: HourProps) => {
+  const color = colorObject[colorName];
   const day = range(9, 17);
 
   const style = day.includes(hour)
@@ -23,14 +23,8 @@ const Hour: React.FC<Props> = ({ hour, minutes, current, colorName }) => {
       };
 
   return (
-    <span
-      className={`hour  ${current ? "current" : ""} `}
-      style={{ ...style, flex: minutes }}
-      id={`h${hour}`}
-    >
+    <span className="hour" style={{ ...style, flex: minutes }} id={`h${hour}`}>
       {hour}
     </span>
   );
 };
-
-export default Hour;
