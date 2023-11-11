@@ -1377,11 +1377,6 @@ three.interaction@^0.2.3:
   resolved "https://registry.yarnpkg.com/three.interaction/-/three.interaction-0.2.3.tgz#f7947b4e44649a822335b03b1dcc68c659d71c04"
   integrity sha512-gipj4E9WSASSys3SC5uU8HPmHodTDYmggJqKN5yjl6S2vG966EkGLu67jkXQoyB/yvGx38C72vHwdjICAh+avg==
 
-three@0.118.3:
-  version "0.118.3"
-  resolved "https://registry.yarnpkg.com/three/-/three-0.118.3.tgz#c0bf8c10a68155478f12f4ccac2ff979526a4a0a"
-  integrity sha512-ijECXrNzDkHieoeh2H69kgawTGH8DiamhR4uBN8jEM7VHSKvfTdEvOoHsA8Aq7dh7PHAxhlqBsN5arBI3KixSw==
-
 tippy.js@^6.2.6:
   version "6.3.7"
   resolved "https://registry.yarnpkg.com/tippy.js/-/tippy.js-6.3.7.tgz#8ccfb651d642010ed9a32ff29b0e9e19c5b8c61c"
