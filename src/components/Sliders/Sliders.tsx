@@ -111,13 +111,15 @@ const Sliders: React.FC<IProps> = ({
               key={`${location.value}${index}`}
               FallbackComponent={ErrorFallback}
             >
-              <Day
-                key={`${location.value}${index}`}
-                reach={reach}
-                time={slidedTime}
-                timeZone={location.value}
-                colorName={location.color}
-              />
+              {!!reach && (
+                <Day
+                  key={`${location.value}${index}`}
+                  reach={reach}
+                  time={slidedTime}
+                  timeZone={location.value}
+                  colorName={location.color}
+                />
+              )}
             </ErrorBoundary>
           );
         })}
