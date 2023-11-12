@@ -1,4 +1,3 @@
-import { range } from "lodash";
 import { ColorName, colorObject } from "../../data/colors";
 import "./Hour.scss";
 
@@ -8,9 +7,10 @@ interface HourProps {
   colorName: ColorName;
 }
 
+const day = Array.from(Array(8), (_x, i) => i + 9);
+
 export const Hour = ({ hour, minutes, colorName }: HourProps) => {
   const color = colorObject[colorName];
-  const day = range(9, 17);
 
   const style = day.includes(hour)
     ? {
